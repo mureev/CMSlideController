@@ -1,0 +1,250 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD4E24C5150F4C9300D2CCBD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4E24C4150F4C9300D2CCBD /* UIKit.framework */; };
+		AD4E24C7150F4C9300D2CCBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4E24C6150F4C9300D2CCBD /* Foundation.framework */; };
+		AD4E24C9150F4C9300D2CCBD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4E24C8150F4C9300D2CCBD /* CoreGraphics.framework */; };
+		AD4E24D1150F4C9300D2CCBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E24D0150F4C9300D2CCBD /* main.m */; };
+		AD4E24D5150F4C9300D2CCBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AD4E24C0150F4C9300D2CCBD /* Demo CMTabBarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo CMTabBarController.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD4E24C4150F4C9300D2CCBD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AD4E24C6150F4C9300D2CCBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AD4E24C8150F4C9300D2CCBD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AD4E24CC150F4C9300D2CCBD /* Demo CMTabBarController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo CMTabBarController-Info.plist"; sourceTree = "<group>"; };
+		AD4E24D0150F4C9300D2CCBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AD4E24D2150F4C9300D2CCBD /* Demo CMTabBarController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo CMTabBarController-Prefix.pch"; sourceTree = "<group>"; };
+		AD4E24D3150F4C9300D2CCBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD4E24BD150F4C9300D2CCBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD4E24C5150F4C9300D2CCBD /* UIKit.framework in Frameworks */,
+				AD4E24C7150F4C9300D2CCBD /* Foundation.framework in Frameworks */,
+				AD4E24C9150F4C9300D2CCBD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD4E24B5150F4C9300D2CCBD = {
+			isa = PBXGroup;
+			children = (
+				AD4E24CA150F4C9300D2CCBD /* Demo */,
+				AD4E24C3150F4C9300D2CCBD /* Frameworks */,
+				AD4E24C1150F4C9300D2CCBD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AD4E24C1150F4C9300D2CCBD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD4E24C0150F4C9300D2CCBD /* Demo CMTabBarController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD4E24C3150F4C9300D2CCBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD4E24C4150F4C9300D2CCBD /* UIKit.framework */,
+				AD4E24C6150F4C9300D2CCBD /* Foundation.framework */,
+				AD4E24C8150F4C9300D2CCBD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD4E24CA150F4C9300D2CCBD /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				AD4E24D3150F4C9300D2CCBD /* AppDelegate.h */,
+				AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */,
+				AD4E24CB150F4C9300D2CCBD /* Supporting Files */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		AD4E24CB150F4C9300D2CCBD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD4E24CC150F4C9300D2CCBD /* Demo CMTabBarController-Info.plist */,
+				AD4E24D0150F4C9300D2CCBD /* main.m */,
+				AD4E24D2150F4C9300D2CCBD /* Demo CMTabBarController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD4E24BF150F4C9300D2CCBD /* Demo CMTabBarController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD4E24D8150F4C9300D2CCBD /* Build configuration list for PBXNativeTarget "Demo CMTabBarController" */;
+			buildPhases = (
+				AD4E24BC150F4C9300D2CCBD /* Sources */,
+				AD4E24BD150F4C9300D2CCBD /* Frameworks */,
+				AD4E24BE150F4C9300D2CCBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Demo CMTabBarController";
+			productName = Demo;
+			productReference = AD4E24C0150F4C9300D2CCBD /* Demo CMTabBarController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD4E24B7150F4C9300D2CCBD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Team Force LLC";
+			};
+			buildConfigurationList = AD4E24BA150F4C9300D2CCBD /* Build configuration list for PBXProject "Demo CMTabBarController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AD4E24B5150F4C9300D2CCBD;
+			productRefGroup = AD4E24C1150F4C9300D2CCBD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD4E24BF150F4C9300D2CCBD /* Demo CMTabBarController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD4E24BE150F4C9300D2CCBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD4E24BC150F4C9300D2CCBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD4E24D1150F4C9300D2CCBD /* main.m in Sources */,
+				AD4E24D5150F4C9300D2CCBD /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AD4E24D6150F4C9300D2CCBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD4E24D7150F4C9300D2CCBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AD4E24D9150F4C9300D2CCBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/Demo CMTabBarController-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo CMTabBarController-Info.plist";
+				PRODUCT_NAME = "Demo CMTabBarController";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AD4E24DA150F4C9300D2CCBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/Demo CMTabBarController-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo CMTabBarController-Info.plist";
+				PRODUCT_NAME = "Demo CMTabBarController";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD4E24BA150F4C9300D2CCBD /* Build configuration list for PBXProject "Demo CMTabBarController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD4E24D6150F4C9300D2CCBD /* Debug */,
+				AD4E24D7150F4C9300D2CCBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD4E24D8150F4C9300D2CCBD /* Build configuration list for PBXNativeTarget "Demo CMTabBarController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD4E24D9150F4C9300D2CCBD /* Debug */,
+				AD4E24DA150F4C9300D2CCBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD4E24B7150F4C9300D2CCBD /* Project object */;
+}
