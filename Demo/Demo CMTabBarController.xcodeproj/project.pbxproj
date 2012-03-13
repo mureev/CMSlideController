@@ -12,6 +12,7 @@
 		AD4E24C9150F4C9300D2CCBD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4E24C8150F4C9300D2CCBD /* CoreGraphics.framework */; };
 		AD4E24D1150F4C9300D2CCBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E24D0150F4C9300D2CCBD /* main.m */; };
 		AD4E24D5150F4C9300D2CCBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */; };
+		AD4E24EC150F514B00D2CCBD /* CMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E24EB150F514B00D2CCBD /* CMTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		AD4E24D2150F4C9300D2CCBD /* Demo CMTabBarController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo CMTabBarController-Prefix.pch"; sourceTree = "<group>"; };
 		AD4E24D3150F4C9300D2CCBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD4E24EA150F514B00D2CCBD /* CMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTabBarController.h; sourceTree = "<group>"; };
+		AD4E24EB150F514B00D2CCBD /* CMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,7 @@
 		AD4E24CA150F4C9300D2CCBD /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				AD4E24E8150F513300D2CCBD /* Source */,
 				AD4E24D3150F4C9300D2CCBD /* AppDelegate.h */,
 				AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */,
 				AD4E24CB150F4C9300D2CCBD /* Supporting Files */,
@@ -85,6 +89,16 @@
 				AD4E24D2150F4C9300D2CCBD /* Demo CMTabBarController-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD4E24E8150F513300D2CCBD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				AD4E24EA150F514B00D2CCBD /* CMTabBarController.h */,
+				AD4E24EB150F514B00D2CCBD /* CMTabBarController.m */,
+			);
+			name = Source;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +164,7 @@
 			files = (
 				AD4E24D1150F4C9300D2CCBD /* main.m in Sources */,
 				AD4E24D5150F4C9300D2CCBD /* AppDelegate.m in Sources */,
+				AD4E24EC150F514B00D2CCBD /* CMTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
