@@ -13,6 +13,7 @@
 		AD4E24D1150F4C9300D2CCBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E24D0150F4C9300D2CCBD /* main.m */; };
 		AD4E24D5150F4C9300D2CCBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */; };
 		AD4E24EC150F514B00D2CCBD /* CMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E24EB150F514B00D2CCBD /* CMTabBarController.m */; };
+		AD4E24F3150F526300D2CCBD /* CMTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4E24F2150F526300D2CCBD /* CMTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AD4E24EA150F514B00D2CCBD /* CMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTabBarController.h; sourceTree = "<group>"; };
 		AD4E24EB150F514B00D2CCBD /* CMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTabBarController.m; sourceTree = "<group>"; };
+		AD4E24F1150F526300D2CCBD /* CMTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTabBar.h; sourceTree = "<group>"; };
+		AD4E24F2150F526300D2CCBD /* CMTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 			children = (
 				AD4E24EA150F514B00D2CCBD /* CMTabBarController.h */,
 				AD4E24EB150F514B00D2CCBD /* CMTabBarController.m */,
+				AD4E24F1150F526300D2CCBD /* CMTabBar.h */,
+				AD4E24F2150F526300D2CCBD /* CMTabBar.m */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -165,6 +170,7 @@
 				AD4E24D1150F4C9300D2CCBD /* main.m in Sources */,
 				AD4E24D5150F4C9300D2CCBD /* AppDelegate.m in Sources */,
 				AD4E24EC150F514B00D2CCBD /* CMTabBarController.m in Sources */,
+				AD4E24F3150F526300D2CCBD /* CMTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
