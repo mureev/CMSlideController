@@ -9,6 +9,12 @@
 #import "AppDelegate.h"
 #import "CMTabBarController.h"
 
+#import "FirstViewController.h"
+#import "SecondViewController.h"
+#import "ThirdViewController.h"
+#import "FourthViewController.h"
+#import "FifthViewController.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -23,27 +29,13 @@
     
     CMTabBarController* tabBarController = [[CMTabBarController new] autorelease];
     
-    UIViewController* vc1 = [[UIViewController new] autorelease];
-    vc1.title = @"1";
-    vc1.tabBarItem.image = [UIImage imageNamed:@"22-skull-n-bones.png"];
+    FirstViewController* vc1 = [[FirstViewController new] autorelease];    
+    SecondViewController* vc2 = [[SecondViewController new] autorelease];    
+    ThirdViewController* vc3 = [[ThirdViewController new] autorelease];    
+    FourthViewController* vc4 = [[FourthViewController new] autorelease];    
+    FifthViewController* vc5 = [[FifthViewController new] autorelease];
     
-    UIViewController* vc2 = [[UIViewController new] autorelease];
-    vc2.title = @"2";
-    vc2.tabBarItem.image = [UIImage imageNamed:@"23-bird.png"];
-    
-    UIViewController* vc3 = [[UIViewController new] autorelease];
-    vc3.title = @"3";
-    vc3.tabBarItem.image = [UIImage imageNamed:@"133-ufo.png"];
-    
-    UIViewController* vc4 = [[UIViewController new] autorelease];
-    vc4.title = @"4";
-    vc4.tabBarItem.image = [UIImage imageNamed:@"164-glasses-2.png"];
-    
-    UIViewController* vc5 = [[UIViewController new] autorelease];
-    vc5.title = @"5";
-    vc5.tabBarItem.image = [UIImage imageNamed:@"196-radiation.png"];
-    
-    tabBarController.viewControllers = [NSArray arrayWithObjects:vc1, vc2, vc3, vc4, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:vc1, vc2, vc3, vc4, vc5, nil];
     tabBarController.view.backgroundColor = [UIColor clearColor];
     
     self.window.rootViewController = tabBarController;

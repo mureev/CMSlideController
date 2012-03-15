@@ -33,6 +33,11 @@
 		AD9917111511D3CD00EFC2B7 /* selectedBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD99170B1511D3CD00EFC2B7 /* selectedBackground@2x.png */; };
 		AD9917161511D41600EFC2B7 /* tabBarGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9917141511D41500EFC2B7 /* tabBarGradient.png */; };
 		AD9917171511D41600EFC2B7 /* tabBarGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9917151511D41500EFC2B7 /* tabBarGradient@2x.png */; };
+		AD9D9B40151204E9006677E4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B3F151204E9006677E4 /* FirstViewController.m */; };
+		AD9D9B43151204FC006677E4 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B42151204FC006677E4 /* SecondViewController.m */; };
+		AD9D9B461512050D006677E4 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B451512050D006677E4 /* ThirdViewController.m */; };
+		AD9D9B491512051E006677E4 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B481512051E006677E4 /* FourthViewController.m */; };
+		AD9D9B4C1512052E006677E4 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B4B1512052E006677E4 /* FifthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +73,16 @@
 		AD99170B1511D3CD00EFC2B7 /* selectedBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectedBackground@2x.png"; sourceTree = "<group>"; };
 		AD9917141511D41500EFC2B7 /* tabBarGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarGradient.png; sourceTree = "<group>"; };
 		AD9917151511D41500EFC2B7 /* tabBarGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarGradient@2x.png"; sourceTree = "<group>"; };
+		AD9D9B3E151204E9006677E4 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		AD9D9B3F151204E9006677E4 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		AD9D9B41151204FC006677E4 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		AD9D9B42151204FC006677E4 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		AD9D9B441512050D006677E4 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		AD9D9B451512050D006677E4 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		AD9D9B471512051E006677E4 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
+		AD9D9B481512051E006677E4 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
+		AD9D9B4A1512052E006677E4 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
+		AD9D9B4B1512052E006677E4 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +132,7 @@
 				AD4E24E8150F513300D2CCBD /* Source */,
 				AD4E24D3150F4C9300D2CCBD /* AppDelegate.h */,
 				AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */,
+				AD9D9B3C151204B1006677E4 /* ViewControllers */,
 				AD9916DE1511D24100EFC2B7 /* Resources */,
 				AD4E24CB150F4C9300D2CCBD /* Supporting Files */,
 			);
@@ -177,6 +193,24 @@
 				AD9917151511D41500EFC2B7 /* tabBarGradient@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		AD9D9B3C151204B1006677E4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD9D9B3E151204E9006677E4 /* FirstViewController.h */,
+				AD9D9B3F151204E9006677E4 /* FirstViewController.m */,
+				AD9D9B41151204FC006677E4 /* SecondViewController.h */,
+				AD9D9B42151204FC006677E4 /* SecondViewController.m */,
+				AD9D9B441512050D006677E4 /* ThirdViewController.h */,
+				AD9D9B451512050D006677E4 /* ThirdViewController.m */,
+				AD9D9B471512051E006677E4 /* FourthViewController.h */,
+				AD9D9B481512051E006677E4 /* FourthViewController.m */,
+				AD9D9B4A1512052E006677E4 /* FifthViewController.h */,
+				AD9D9B4B1512052E006677E4 /* FifthViewController.m */,
+			);
+			name = ViewControllers;
+			path = ../../../CMPageViewController/Demo/Demo/ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +297,11 @@
 				AD4E24D5150F4C9300D2CCBD /* AppDelegate.m in Sources */,
 				AD4E24EC150F514B00D2CCBD /* CMTabBarController.m in Sources */,
 				AD4E24F3150F526300D2CCBD /* CMTabBar.m in Sources */,
+				AD9D9B40151204E9006677E4 /* FirstViewController.m in Sources */,
+				AD9D9B43151204FC006677E4 /* SecondViewController.m in Sources */,
+				AD9D9B461512050D006677E4 /* ThirdViewController.m in Sources */,
+				AD9D9B491512051E006677E4 /* FourthViewController.m in Sources */,
+				AD9D9B4C1512052E006677E4 /* FifthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
