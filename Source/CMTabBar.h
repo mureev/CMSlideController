@@ -13,7 +13,7 @@
 @property (nonatomic, assign) id<UITabBarDelegate>  delegate;
 @property (nonatomic, assign) UITabBarItem*         selectedItem;
 
-- (void)setItems:(NSArray *)items animated:(BOOL)animated;
+- (void)setItems:(NSArray*)tabBarItems animated:(BOOL)animated;
 
 @property (nonatomic, retain) UIColor*              tintColor;
 @property (nonatomic, retain) UIImage*              backgroundImage;

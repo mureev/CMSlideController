@@ -52,16 +52,16 @@
 		AD9916C71511CAF100EFC2B7 /* icon-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-iphone.png"; path = "../icon-iphone.png"; sourceTree = "<group>"; };
 		AD9916CA1511CAF600EFC2B7 /* icon-iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-iphone@2x.png"; path = "../icon-iphone@2x.png"; sourceTree = "<group>"; };
 		AD9916CC1511CAFC00EFC2B7 /* icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-ipad.png"; path = "../icon-ipad.png"; sourceTree = "<group>"; };
-		AD9916F31511D27D00EFC2B7 /* 22-skull-n-bones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "22-skull-n-bones.png"; path = "Resources/22-skull-n-bones.png"; sourceTree = "<group>"; };
-		AD9916F41511D27D00EFC2B7 /* 22-skull-n-bones@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "22-skull-n-bones@2x.png"; path = "Resources/22-skull-n-bones@2x.png"; sourceTree = "<group>"; };
-		AD9916F51511D27D00EFC2B7 /* 23-bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "23-bird.png"; path = "Resources/23-bird.png"; sourceTree = "<group>"; };
-		AD9916F61511D27E00EFC2B7 /* 23-bird@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "23-bird@2x.png"; path = "Resources/23-bird@2x.png"; sourceTree = "<group>"; };
-		AD9916F71511D27E00EFC2B7 /* 133-ufo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "133-ufo.png"; path = "Resources/133-ufo.png"; sourceTree = "<group>"; };
-		AD9916F81511D27F00EFC2B7 /* 133-ufo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "133-ufo@2x.png"; path = "Resources/133-ufo@2x.png"; sourceTree = "<group>"; };
-		AD9916F91511D28100EFC2B7 /* 164-glasses-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "164-glasses-2.png"; path = "Resources/164-glasses-2.png"; sourceTree = "<group>"; };
-		AD9916FA1511D28200EFC2B7 /* 164-glasses-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "164-glasses-2@2x.png"; path = "Resources/164-glasses-2@2x.png"; sourceTree = "<group>"; };
-		AD9916FB1511D28400EFC2B7 /* 196-radiation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "196-radiation.png"; path = "Resources/196-radiation.png"; sourceTree = "<group>"; };
-		AD9916FC1511D28600EFC2B7 /* 196-radiation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "196-radiation@2x.png"; path = "Resources/196-radiation@2x.png"; sourceTree = "<group>"; };
+		AD9916F31511D27D00EFC2B7 /* 22-skull-n-bones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "22-skull-n-bones.png"; sourceTree = "<group>"; };
+		AD9916F41511D27D00EFC2B7 /* 22-skull-n-bones@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "22-skull-n-bones@2x.png"; sourceTree = "<group>"; };
+		AD9916F51511D27D00EFC2B7 /* 23-bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "23-bird.png"; sourceTree = "<group>"; };
+		AD9916F61511D27E00EFC2B7 /* 23-bird@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "23-bird@2x.png"; sourceTree = "<group>"; };
+		AD9916F71511D27E00EFC2B7 /* 133-ufo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "133-ufo.png"; sourceTree = "<group>"; };
+		AD9916F81511D27F00EFC2B7 /* 133-ufo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "133-ufo@2x.png"; sourceTree = "<group>"; };
+		AD9916F91511D28100EFC2B7 /* 164-glasses-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "164-glasses-2.png"; sourceTree = "<group>"; };
+		AD9916FA1511D28200EFC2B7 /* 164-glasses-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "164-glasses-2@2x.png"; sourceTree = "<group>"; };
+		AD9916FB1511D28400EFC2B7 /* 196-radiation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "196-radiation.png"; sourceTree = "<group>"; };
+		AD9916FC1511D28600EFC2B7 /* 196-radiation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "196-radiation@2x.png"; sourceTree = "<group>"; };
 		AD9917081511D3CD00EFC2B7 /* glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glow.png; sourceTree = "<group>"; };
 		AD9917091511D3CD00EFC2B7 /* glow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glow@2x.png"; sourceTree = "<group>"; };
 		AD99170A1511D3CD00EFC2B7 /* selectedBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedBackground.png; sourceTree = "<group>"; };
@@ -118,16 +118,6 @@
 				AD4E24D3150F4C9300D2CCBD /* AppDelegate.h */,
 				AD4E24D4150F4C9300D2CCBD /* AppDelegate.m */,
 				AD9916DE1511D24100EFC2B7 /* Resources */,
-				AD9916F31511D27D00EFC2B7 /* 22-skull-n-bones.png */,
-				AD9916F41511D27D00EFC2B7 /* 22-skull-n-bones@2x.png */,
-				AD9916F51511D27D00EFC2B7 /* 23-bird.png */,
-				AD9916F61511D27E00EFC2B7 /* 23-bird@2x.png */,
-				AD9916F71511D27E00EFC2B7 /* 133-ufo.png */,
-				AD9916F81511D27F00EFC2B7 /* 133-ufo@2x.png */,
-				AD9916F91511D28100EFC2B7 /* 164-glasses-2.png */,
-				AD9916FA1511D28200EFC2B7 /* 164-glasses-2@2x.png */,
-				AD9916FB1511D28400EFC2B7 /* 196-radiation.png */,
-				AD9916FC1511D28600EFC2B7 /* 196-radiation@2x.png */,
 				AD4E24CB150F4C9300D2CCBD /* Supporting Files */,
 			);
 			path = Demo;
@@ -162,6 +152,16 @@
 		AD9916DE1511D24100EFC2B7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AD9916F31511D27D00EFC2B7 /* 22-skull-n-bones.png */,
+				AD9916F41511D27D00EFC2B7 /* 22-skull-n-bones@2x.png */,
+				AD9916F51511D27D00EFC2B7 /* 23-bird.png */,
+				AD9916F61511D27E00EFC2B7 /* 23-bird@2x.png */,
+				AD9916F71511D27E00EFC2B7 /* 133-ufo.png */,
+				AD9916F81511D27F00EFC2B7 /* 133-ufo@2x.png */,
+				AD9916F91511D28100EFC2B7 /* 164-glasses-2.png */,
+				AD9916FA1511D28200EFC2B7 /* 164-glasses-2@2x.png */,
+				AD9916FB1511D28400EFC2B7 /* 196-radiation.png */,
+				AD9916FC1511D28600EFC2B7 /* 196-radiation@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
