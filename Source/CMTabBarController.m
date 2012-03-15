@@ -10,6 +10,8 @@
 
 @interface CMTabBarController ()
 
+- (CGRect)frameForViewControllers;
+
 @end
 
 
@@ -76,6 +78,9 @@
     for (UIViewController* vc in self.viewControllers) {
         [tabBarItems addObject:vc.tabBarItem];
         vc.view.hidden = YES;
+        
+        // Update frames
+        vc.view.frame = [self frameForViewControllers];
         [self.view addSubview:vc.view];
     }
     [self.tabBar setItems:tabBarItems animated:NO];
@@ -123,6 +128,18 @@
 
 - (UIViewController*)selectedViewController {
     return [self.viewControllers objectAtIndex:self.tabBar.selectedIndex];
+}
+
+
+#pragma mark - Private
+
+
+- (CGRect)frameForViewControllers {
+    CGFloat height = self.view.frame.size.height - self.view.frame.origin.y;
+    
+    height -= self.tabBar.frame.size.height;
+    
+    return CGRectMake(0, 0, self.view.frame.size.width, height);
 }
 
 

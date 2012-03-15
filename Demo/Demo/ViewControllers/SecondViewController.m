@@ -19,6 +19,8 @@
     
     self.title = @"2";
     self.tabBarItem.image = [UIImage imageNamed:@"23-bird.png"];
+    
+    self.view.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.7];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

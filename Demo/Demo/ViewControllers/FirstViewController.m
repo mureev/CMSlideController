@@ -20,7 +20,7 @@
     self.title = @"1";
     self.tabBarItem.image = [UIImage imageNamed:@"22-skull-n-bones.png"];
     
-    self.view.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.3];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
