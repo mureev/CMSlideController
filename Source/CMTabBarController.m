@@ -23,6 +23,15 @@
     return self;
 }
 
+- (void)dealloc {
+    self.viewControllers = nil;
+    self.selectedViewController = nil;
+    self.tabBar = nil;
+    self.delegate = nil;
+    
+    [super dealloc];
+}
+
 - (void)loadView {
     CGRect frame = [[UIScreen mainScreen] bounds];
     self.view = [[[UIView alloc] initWithFrame:frame] autorelease];
@@ -34,14 +43,26 @@
     [self.view addSubview:self.tabBar];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    NSMutableArray* tabBarItems = [NSMutableArray array];
+    for (UIViewController* vc in self.viewControllers) {
+        [tabBarItems addObject:vc.tabBarItem];
+    }
+    [self.tabBar setItems:tabBarItems animated:NO];
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

@@ -11,13 +11,13 @@
 
 @interface CMTabBarController : UIViewController
 
-@property(nonatomic,copy) NSArray*              viewControllers;
+@property (nonatomic, retain) NSArray*              viewControllers;
 
-@property(nonatomic,assign) UIViewController*   selectedViewController;
-@property(nonatomic,assign) NSUInteger          selectedIndex;
+@property (nonatomic, assign) UIViewController*     selectedViewController;
+@property (nonatomic, assign) NSUInteger            selectedIndex;
 
-@property(nonatomic,retain) CMTabBar*           tabBar;
+@property (nonatomic, retain) CMTabBar*             tabBar;
 
-@property(nonatomic,assign) id<UITabBarControllerDelegate> delegate;
+@property (nonatomic, assign) id<UITabBarControllerDelegate> delegate;
 
 @end
