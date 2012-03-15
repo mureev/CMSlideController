@@ -9,6 +9,7 @@
 
 @protocol CMTabBarDelegate <NSObject>
 
+- (void)tabBar:(id)tabBar willSelectItemAtIndex:(NSUInteger)index;
 - (void)tabBar:(id)tabBar didSelectItemAtIndex:(NSUInteger)index;
 
 @end

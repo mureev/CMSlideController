@@ -37,8 +37,6 @@
         self.backgroundImageView.image = [self defaultBackgroundImage];
         self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.backgroundImageView];
-        
-        _selectedIndex = 4294967295; // not selected state
     }
     return self;
 }
@@ -49,10 +47,13 @@
 
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
     if (_selectedIndex != selectedIndex && selectedIndex < [self.buttons count]) {
-        [self willChangeValueForKey:@"selectedIndex"];
-        
         // check only for first selection
         if (_selectedIndex < [self.buttons count]) {
+            [self willChangeValueForKey:@"selectedIndex"];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(tabBar:willSelectItemAtIndex:)]) {
+                [self.delegate tabBar:self willSelectItemAtIndex:_selectedIndex];
+            }
+            
             UIButton* oldButton = [self.buttons objectAtIndex:_selectedIndex];
             [oldButton setImage:[oldButton imageForState:UIControlStateDisabled] forState:UIControlStateNormal];
         }
@@ -62,8 +63,7 @@
         
         _selectedIndex = selectedIndex;
         
-        [self didChangeValueForKey:@"selectedIndex"];
-        
+        [self didChangeValueForKey:@"selectedIndex"];        
         if (self.delegate && [self.delegate respondsToSelector:@selector(tabBar:didSelectItemAtIndex:)]) {
             [self.delegate tabBar:self didSelectItemAtIndex:_selectedIndex];
         }
@@ -108,6 +108,10 @@
         [button addActionCompletionBlock:^(id sender) {
             self.selectedIndex = i;
         } forControlEvents:UIControlEventTouchUpInside];
+        
+        if (i == self.selectedIndex) {
+            [button setImage:[button imageForState:UIControlStateSelected] forState:UIControlStateNormal];
+        }
         
         [newButtons addObject:button];
     }

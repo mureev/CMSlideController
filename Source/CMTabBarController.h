@@ -13,7 +13,7 @@
 
 @property (nonatomic, retain) NSArray*              viewControllers;
 
-@property (nonatomic, assign) UIViewController*     selectedViewController;
+@property (nonatomic, readonly) UIViewController*   selectedViewController;
 @property (nonatomic, assign) NSUInteger            selectedIndex;
 
 @property (nonatomic, retain) CMTabBar*             tabBar;

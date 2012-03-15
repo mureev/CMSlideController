@@ -15,7 +15,8 @@
 
 @implementation CMTabBarController
 
-@synthesize viewControllers, selectedIndex, selectedViewController, tabBar=_tabBar, delegate; 
+@synthesize viewControllers, selectedIndex, tabBar=_tabBar, delegate;
+@dynamic selectedViewController;
 
 - (id)init {
     self = [super init];
@@ -27,7 +28,6 @@
 
 - (void)dealloc {
     self.viewControllers = nil;
-    self.selectedViewController = nil;
     self.tabBar.delegate = nil;
     self.tabBar = nil;
     self.delegate = nil;
@@ -54,10 +54,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [self.selectedViewController viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    [self.selectedViewController viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad {
@@ -71,8 +75,12 @@
     NSMutableArray* tabBarItems = [NSMutableArray array];
     for (UIViewController* vc in self.viewControllers) {
         [tabBarItems addObject:vc.tabBarItem];
+        vc.view.hidden = YES;
+        [self.view addSubview:vc.view];
     }
     [self.tabBar setItems:tabBarItems animated:NO];
+    self.selectedViewController.view.hidden = NO;
+    [self.view bringSubviewToFront:self.tabBar];
 }
 
 - (void)viewDidUnload {
@@ -91,12 +99,25 @@
     }
 }
 
+- (UIViewController*)selectedViewController {
+    return [self.viewControllers objectAtIndex:self.tabBar.selectedIndex];
+}
+
 
 #pragma mark - UITabBarDelegate
 
 
+- (void)tabBar:(id)tabBar willSelectItemAtIndex:(NSUInteger)index {
+    [self.selectedViewController viewWillDisappear:NO];
+}
+
 - (void)tabBar:(id)tabBar didSelectItemAtIndex:(NSUInteger)index {
+    for (UIViewController* vc in self.viewControllers) {
+        vc.view.hidden = YES;
+    }
+    self.selectedViewController.view.hidden = NO;
     
+    [self.selectedViewController viewWillAppear:NO];
 }
 
 
