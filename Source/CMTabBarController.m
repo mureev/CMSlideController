@@ -92,10 +92,32 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    for (UIViewController* vc in self.viewControllers) {
+        [vc shouldAutorotateToInterfaceOrientation:interfaceOrientation];
+    }
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
         return YES;
+    }
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    for (UIViewController* vc in self.viewControllers) {
+        [vc willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    }
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    for (UIViewController* vc in self.viewControllers) {
+        [vc didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    }
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    for (UIViewController* vc in self.viewControllers) {
+        [vc willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
     }
 }
 
@@ -115,6 +137,7 @@
     for (UIViewController* vc in self.viewControllers) {
         vc.view.hidden = YES;
     }
+    
     self.selectedViewController.view.hidden = NO;
     
     [self.selectedViewController viewWillAppear:NO];
