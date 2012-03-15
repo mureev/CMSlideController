@@ -57,11 +57,17 @@
     }
     
     NSMutableArray* newButtons = [NSMutableArray array];
-    CGSize buttonSize = CGSizeMake(self.frame.size.width / [tabBarItems count], self.frame.size.height);
+    
+    NSUInteger offset = 0;
+    if (self.frame.size.width >= 768) {
+        offset = self.frame.size.width / 4;
+    }
+    
+    CGSize buttonSize = CGSizeMake((self.frame.size.width - offset * 2) / [tabBarItems count], self.frame.size.height);
     
     for (int i=0; i < [tabBarItems count]; i++) {
         UITabBarItem* tabBarItem = (UITabBarItem*)[tabBarItems objectAtIndex:i];
-        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * buttonSize.width, 0, buttonSize.width, buttonSize.height)];
+        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * buttonSize.width + offset, 0, buttonSize.width, buttonSize.height)];
         button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
         UIImage* buttonImage = [self tabBarImage:tabBarItem.image size:button.frame.size backgroundImage:nil];
