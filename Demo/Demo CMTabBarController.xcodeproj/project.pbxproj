@@ -40,6 +40,7 @@
 		AD9D9B8A151222C8006677E4 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B83151222C8006677E4 /* FourthViewController.m */; };
 		AD9D9B8B151222C8006677E4 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B85151222C8006677E4 /* SecondViewController.m */; };
 		AD9D9B8C151222C8006677E4 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B87151222C8006677E4 /* ThirdViewController.m */; };
+		FCA78CD11512764D00DF45CB /* UIViewController+CMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA78CD01512764D00DF45CB /* UIViewController+CMTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,8 @@
 		AD9D9B85151222C8006677E4 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		AD9D9B86151222C8006677E4 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		AD9D9B87151222C8006677E4 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		FCA78CCF1512764D00DF45CB /* UIViewController+CMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CMTabBarController.h"; sourceTree = "<group>"; };
+		FCA78CD01512764D00DF45CB /* UIViewController+CMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CMTabBarController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,7 @@
 			children = (
 				AD9917071511D3CD00EFC2B7 /* Images */,
 				AD9D9B6B15121186006677E4 /* Libraries */,
+				FCA78CCD1512753600DF45CB /* Extensions */,
 				AD4E24EA150F514B00D2CCBD /* CMTabBarController.h */,
 				AD4E24EB150F514B00D2CCBD /* CMTabBarController.m */,
 				AD4E24F1150F526300D2CCBD /* CMTabBar.h */,
@@ -236,6 +240,15 @@
 				AD9D9B7F151222C8006677E4 /* FifthViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FCA78CCD1512753600DF45CB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FCA78CCF1512764D00DF45CB /* UIViewController+CMTabBarController.h */,
+				FCA78CD01512764D00DF45CB /* UIViewController+CMTabBarController.m */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +342,7 @@
 				AD9D9B8A151222C8006677E4 /* FourthViewController.m in Sources */,
 				AD9D9B8B151222C8006677E4 /* SecondViewController.m in Sources */,
 				AD9D9B8C151222C8006677E4 /* ThirdViewController.m in Sources */,
+				FCA78CD11512764D00DF45CB /* UIViewController+CMTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

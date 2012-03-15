@@ -11,6 +11,8 @@
 
 @interface CMTabBarController : UIViewController <CMTabBarDelegate>
 
++ (id)sharedTabBarController;
+
 @property (nonatomic, retain) NSArray*              viewControllers;
 
 @property (nonatomic, readonly) UIViewController*   selectedViewController;

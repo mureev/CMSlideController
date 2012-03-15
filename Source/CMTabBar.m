@@ -22,7 +22,7 @@
 
 @implementation CMTabBar
 
-@synthesize delegate, selectedIndex=_selectedIndex, tintColor, backgroundImage, selectionIndicatorImage;
+@synthesize delegate, selectedIndex=_selectedIndex, tabBarStyle=_tabBarStyle, tintColor, backgroundImage, selectionIndicatorImage;
 @synthesize buttons, backgroundImageView;
 
 
@@ -37,6 +37,8 @@
         self.backgroundImageView.image = [self defaultBackgroundImage];
         self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.backgroundImageView];
+        
+        self.tabBarStyle = CMTabBarStyleDefault;
     }
     return self;
 }
@@ -66,6 +68,28 @@
         [self didChangeValueForKey:@"selectedIndex"];        
         if (self.delegate && [self.delegate respondsToSelector:@selector(tabBar:didSelectItemAtIndex:)]) {
             [self.delegate tabBar:self didSelectItemAtIndex:_selectedIndex];
+        }
+    }
+}
+
+- (void)setTabBarStyle:(CMTabBarStyle)tabBarStyle {
+    if (_tabBarStyle != tabBarStyle) {
+        [self willChangeValueForKey:@"tabBarStyle"];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(tabBar:willChangeTabBarStyle:)]) {
+            [self.delegate tabBar:self willChangeTabBarStyle:tabBarStyle];
+        }
+        
+        if (tabBarStyle == CMTabBarStyleDefault) {
+            self.alpha = 1.0;
+        } else {
+            self.alpha = 0.7;
+        }
+        
+        _tabBarStyle = tabBarStyle;
+        
+        [self didChangeValueForKey:@"tabBarStyle"];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(tabBar:didChangeTabBarStyle:)]) {
+            [self.delegate tabBar:self didChangeTabBarStyle:tabBarStyle];
         }
     }
 }
@@ -156,8 +180,6 @@
     
     return resultImage;
 }
-
-
 
 
 @end

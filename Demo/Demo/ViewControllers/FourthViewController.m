@@ -7,18 +7,27 @@
 //
 
 #import "FourthViewController.h"
+#import "UIViewController+CMTabBarController.h"
+
 
 @interface FourthViewController ()
 
 @end
 
+
 @implementation FourthViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"4";
     self.tabBarItem.image = [UIImage imageNamed:@"164-glasses-2.png"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.customTbBarController.tabBar.tabBarStyle = CMTabBarStyleTranslucent;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

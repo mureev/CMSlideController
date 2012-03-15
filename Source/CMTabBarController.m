@@ -20,10 +20,16 @@
 @synthesize viewControllers, selectedIndex, tabBar=_tabBar, delegate;
 @dynamic selectedViewController;
 
+static CMTabBarController* sharedInstance = nil;
+
++ (id)sharedTabBarController {
+    return sharedInstance;
+}
+
 - (id)init {
     self = [super init];
     if (self) {
-        // Custom initialization
+        sharedInstance = self;
     }
     return self;
 }
@@ -46,8 +52,8 @@
     self.tabBar = [[[CMTabBar alloc] initWithFrame:CGRectMake(0, frame.size.height - tabBarHeight, frame.size.width, tabBarHeight)] autorelease];
     self.tabBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [self.view addSubview:self.tabBar];
-    self.tabBar.delegate = self;
     
+    self.tabBar.delegate = self;
     
     for (UIViewController* vc in self.viewControllers) {
         [vc loadView];
@@ -75,12 +81,11 @@
     
     // Custom logic
     NSMutableArray* tabBarItems = [NSMutableArray array];
+    CGRect newFrame = [self frameForViewControllers];
     for (UIViewController* vc in self.viewControllers) {
         [tabBarItems addObject:vc.tabBarItem];
         vc.view.hidden = YES;
-        
-        // Update frames
-        vc.view.frame = [self frameForViewControllers];
+        vc.view.frame = newFrame;
         [self.view addSubview:vc.view];
     }
     [self.tabBar setItems:tabBarItems animated:NO];
@@ -135,9 +140,11 @@
 
 
 - (CGRect)frameForViewControllers {
-    CGFloat height = self.view.frame.size.height - self.view.frame.origin.y;
+    CGFloat height = self.view.frame.size.height;
     
-    height -= self.tabBar.frame.size.height;
+    if (self.tabBar.tabBarStyle == CMTabBarStyleDefault) {
+        height -= self.tabBar.frame.size.height;
+    }
     
     return CGRectMake(0, 0, self.view.frame.size.width, height);
 }
@@ -160,5 +167,15 @@
     [self.selectedViewController viewWillAppear:NO];
 }
 
+- (void)tabBar:(id)tabBar willChangeTabBarStyle:(CMTabBarStyle)tabBarStyle {
+    CGRect newFrame = [self frameForViewControllers];
+    for (UIViewController* vc in self.viewControllers) {
+        vc.view.frame = newFrame;
+    }
+}
+
+- (void)tabBar:(id)tabBar didChangeTabBarStyle:(CMTabBarStyle)tabBarStyle {
+    
+}
 
 @end
