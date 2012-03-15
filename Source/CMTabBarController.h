@@ -7,6 +7,17 @@
 
 #import <UIKit/UIKit.h>
 
+#import "CMTabBar.h"
+
 @interface CMTabBarController : UIViewController
+
+@property(nonatomic,copy) NSArray*              viewControllers;
+
+@property(nonatomic,assign) UIViewController*   selectedViewController;
+@property(nonatomic,assign) NSUInteger          selectedIndex;
+
+@property(nonatomic,retain) CMTabBar*           tabBar;
+
+@property(nonatomic,assign) id<UITabBarControllerDelegate> delegate;
 
 @end

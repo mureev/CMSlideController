@@ -9,4 +9,14 @@
 
 @interface CMTabBar : UIView
 
+@property (nonatomic,assign) id<UITabBarDelegate>   delegate;
+@property (nonatomic,copy)   NSArray*               items;
+@property (nonatomic,assign) UITabBarItem*          selectedItem;
+
+- (void)setItems:(NSArray *)items animated:(BOOL)animated;
+
+@property (nonatomic,retain) UIColor*               tintColor;
+@property (nonatomic,retain) UIImage*               backgroundImage;
+@property (nonatomic,retain) UIImage*               selectionIndicatorImage; 
+
 @end

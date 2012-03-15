@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CMTabBarController.h"
 
 @implementation AppDelegate
 
@@ -21,8 +22,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    CMTabBarController* tabBarController = [[CMTabBarController new] autorelease];
+    
+    UIViewController* vc1 = [[UIViewController new] autorelease];
+    vc1.title = @"1";
+    UIViewController* vc2 = [[UIViewController new] autorelease];
+    vc2.title = @"2";
+    UIViewController* vc3 = [[UIViewController new] autorelease];
+    vc3.title = @"3";
+    UIViewController* vc4 = [[UIViewController new] autorelease];
+    vc4.title = @"4";
+    UIViewController* vc5 = [[UIViewController new] autorelease];
+    vc5.title = @"5";
+    
+    tabBarController.viewControllers = [NSArray arrayWithObjects:vc1, vc2, vc3, vc4, nil];
+    tabBarController.view.backgroundColor = [UIColor clearColor];
+    
+    self.window.rootViewController = tabBarController;
+    
+    self.window.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
