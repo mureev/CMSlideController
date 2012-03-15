@@ -9,7 +9,7 @@
 
 #import "CMTabBar.h"
 
-@interface CMTabBarController : UIViewController
+@interface CMTabBarController : UIViewController <CMTabBarDelegate>
 
 @property (nonatomic, retain) NSArray*              viewControllers;
 

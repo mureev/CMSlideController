@@ -6,6 +6,7 @@
 //
 
 #import "CMTabBar.h"
+#import "UIControl+Blocks.h"
 
 
 @interface CMTabBar()
@@ -23,7 +24,7 @@
 
 @implementation CMTabBar
 
-@synthesize delegate, selectedItem, tintColor, backgroundImage, selectionIndicatorImage;
+@synthesize delegate, selectedIndex=_selectedIndex, tintColor, backgroundImage, selectionIndicatorImage;
 @synthesize buttons, backgroundImageView;
 
 
@@ -36,12 +37,37 @@
         self.backgroundImageView.image = [self defaultBackgroundImage];
         self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.backgroundImageView];
+        
+        _selectedIndex = 4294967295; // not selected state
     }
     return self;
 }
 
 - (void)dealloc {
     [super dealloc];
+}
+
+- (void)setSelectedIndex:(NSUInteger)selectedIndex {
+    if (_selectedIndex != selectedIndex && selectedIndex < [self.buttons count]) {
+        [self willChangeValueForKey:@"selectedIndex"];
+        
+        // check only for first selection
+        if (_selectedIndex < [self.buttons count]) {
+            UIButton* oldButton = [self.buttons objectAtIndex:_selectedIndex];
+            [oldButton setImage:[oldButton imageForState:UIControlStateDisabled] forState:UIControlStateNormal];
+        }
+        
+        UIButton* newButton = [self.buttons objectAtIndex:selectedIndex];
+        [newButton setImage:[newButton imageForState:UIControlStateSelected] forState:UIControlStateNormal];
+        
+        _selectedIndex = selectedIndex;
+        
+        [self didChangeValueForKey:@"selectedIndex"];
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(tabBar:didSelectItemAtIndex:)]) {
+            [self.delegate tabBar:self didSelectItemAtIndex:_selectedIndex];
+        }
+    }
 }
 
 
@@ -52,6 +78,7 @@
     // Add KVO for each UITabBarItem
     
     for (UIButton* button in self.buttons) {
+        [button removeActionCompletionBlocksForControlEvents:UIControlEventTouchUpInside];
         [button removeFromSuperview];
     }
     
@@ -73,12 +100,19 @@
         UIImage* buttonPressedImage = [self tabBarImage:tabBarItem.image size:buttonSize backgroundImage:[UIImage imageNamed:@"selectedBackground.png"]];
         
         [button setImage:buttonImage forState:UIControlStateNormal];
+        [button setImage:buttonImage forState:UIControlStateDisabled];
         [button setImage:buttonPressedImage forState:UIControlStateHighlighted];
         [button setImage:buttonPressedImage forState:UIControlStateSelected];
         [self addSubview:button];
         
+        [button addActionCompletionBlock:^(id sender) {
+            self.selectedIndex = i;
+        } forControlEvents:UIControlEventTouchUpInside];
+        
         [newButtons addObject:button];
     }
+    
+    self.buttons = newButtons;
 }
 
 

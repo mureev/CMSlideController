@@ -7,11 +7,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CMTabBarDelegate <NSObject>
+
+- (void)tabBar:(id)tabBar didSelectItemAtIndex:(NSUInteger)index;
+
+@end
+
 
 @interface CMTabBar : UIView
 
-@property (nonatomic, assign) id<UITabBarDelegate>  delegate;
-@property (nonatomic, assign) UITabBarItem*         selectedItem;
+@property (nonatomic, assign) id<CMTabBarDelegate>  delegate;
+@property (nonatomic, assign) NSUInteger            selectedIndex;
 
 - (void)setItems:(NSArray*)tabBarItems animated:(BOOL)animated;
 

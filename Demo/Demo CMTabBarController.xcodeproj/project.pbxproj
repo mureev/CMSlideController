@@ -38,6 +38,7 @@
 		AD9D9B461512050D006677E4 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B451512050D006677E4 /* ThirdViewController.m */; };
 		AD9D9B491512051E006677E4 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B481512051E006677E4 /* FourthViewController.m */; };
 		AD9D9B4C1512052E006677E4 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B4B1512052E006677E4 /* FifthViewController.m */; };
+		AD9D9B7315121186006677E4 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B7015121186006677E4 /* UIControl+Blocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,8 @@
 		AD9D9B481512051E006677E4 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
 		AD9D9B4A1512052E006677E4 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
 		AD9D9B4B1512052E006677E4 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
+		AD9D9B6F15121186006677E4 /* UIControl+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Blocks.h"; sourceTree = "<group>"; };
+		AD9D9B7015121186006677E4 /* UIControl+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Blocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				AD9917071511D3CD00EFC2B7 /* Images */,
+				AD9D9B6B15121186006677E4 /* Libraries */,
 				AD4E24EA150F514B00D2CCBD /* CMTabBarController.h */,
 				AD4E24EB150F514B00D2CCBD /* CMTabBarController.m */,
 				AD4E24F1150F526300D2CCBD /* CMTabBar.h */,
@@ -211,6 +215,23 @@
 			);
 			name = ViewControllers;
 			path = ../../../CMPageViewController/Demo/Demo/ViewControllers;
+			sourceTree = "<group>";
+		};
+		AD9D9B6B15121186006677E4 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				AD9D9B6C15121186006677E4 /* UIControl-Blocks */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		AD9D9B6C15121186006677E4 /* UIControl-Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				AD9D9B6F15121186006677E4 /* UIControl+Blocks.h */,
+				AD9D9B7015121186006677E4 /* UIControl+Blocks.m */,
+			);
+			path = "UIControl-Blocks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +323,7 @@
 				AD9D9B461512050D006677E4 /* ThirdViewController.m in Sources */,
 				AD9D9B491512051E006677E4 /* FourthViewController.m in Sources */,
 				AD9D9B4C1512052E006677E4 /* FifthViewController.m in Sources */,
+				AD9D9B7315121186006677E4 /* UIControl+Blocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

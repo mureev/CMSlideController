@@ -7,9 +7,11 @@
 
 #import "CMTabBarController.h"
 
+
 @interface CMTabBarController ()
 
 @end
+
 
 @implementation CMTabBarController
 
@@ -26,6 +28,7 @@
 - (void)dealloc {
     self.viewControllers = nil;
     self.selectedViewController = nil;
+    self.tabBar.delegate = nil;
     self.tabBar = nil;
     self.delegate = nil;
     
@@ -41,6 +44,7 @@
     self.tabBar = [[[CMTabBar alloc] initWithFrame:CGRectMake(0, frame.size.height - tabBarHeight, frame.size.width, tabBarHeight)] autorelease];
     self.tabBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [self.view addSubview:self.tabBar];
+    self.tabBar.delegate = self;
     
     
     for (UIViewController* vc in self.viewControllers) {
@@ -50,18 +54,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    for (UIViewController* vc in self.viewControllers) {
-        [vc viewWillAppear:animated];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    for (UIViewController* vc in self.viewControllers) {
-        [vc viewWillDisappear:animated];
-    }
 }
 
 - (void)viewDidLoad {
@@ -94,5 +90,14 @@
         return YES;
     }
 }
+
+
+#pragma mark - UITabBarDelegate
+
+
+- (void)tabBar:(id)tabBar didSelectItemAtIndex:(NSUInteger)index {
+    
+}
+
 
 @end
