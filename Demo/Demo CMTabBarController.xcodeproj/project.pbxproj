@@ -39,6 +39,7 @@
 		AD9D9B491512051E006677E4 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B481512051E006677E4 /* FourthViewController.m */; };
 		AD9D9B4C1512052E006677E4 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B4B1512052E006677E4 /* FifthViewController.m */; };
 		AD9D9B7315121186006677E4 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B7015121186006677E4 /* UIControl+Blocks.m */; };
+		AD9D9B7B15122043006677E4 /* CMTabBarUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B7A15122043006677E4 /* CMTabBarUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		AD9D9B4B1512052E006677E4 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
 		AD9D9B6F15121186006677E4 /* UIControl+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Blocks.h"; sourceTree = "<group>"; };
 		AD9D9B7015121186006677E4 /* UIControl+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Blocks.m"; sourceTree = "<group>"; };
+		AD9D9B7915122043006677E4 /* CMTabBarUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTabBarUtils.h; sourceTree = "<group>"; };
+		AD9D9B7A15122043006677E4 /* CMTabBarUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTabBarUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 				AD4E24EB150F514B00D2CCBD /* CMTabBarController.m */,
 				AD4E24F1150F526300D2CCBD /* CMTabBar.h */,
 				AD4E24F2150F526300D2CCBD /* CMTabBar.m */,
+				AD9D9B7915122043006677E4 /* CMTabBarUtils.h */,
+				AD9D9B7A15122043006677E4 /* CMTabBarUtils.m */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -324,6 +329,7 @@
 				AD9D9B491512051E006677E4 /* FourthViewController.m in Sources */,
 				AD9D9B4C1512052E006677E4 /* FifthViewController.m in Sources */,
 				AD9D9B7315121186006677E4 /* UIControl+Blocks.m in Sources */,
+				AD9D9B7B15122043006677E4 /* CMTabBarUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
