@@ -16,6 +16,7 @@
 @property (nonatomic, retain) UIImageView*  backgroundImageView;
 
 - (UIImage*)defaultBackgroundImage;
+- (UIImage*)defaultSelectionIndicatorImage;
 
 @end
 
@@ -31,6 +32,7 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.backgroundImage = [self defaultBackgroundImage];
+        self.selectionIndicatorImage = [self defaultSelectionIndicatorImage];
         
         self.backgroundImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)] autorelease];
         self.backgroundImageView.backgroundColor = [UIColor clearColor];
@@ -58,10 +60,12 @@
         if (_selectedIndex < [self.buttons count]) {
             UIButton* oldButton = [self.buttons objectAtIndex:_selectedIndex];
             [oldButton setImage:[oldButton imageForState:UIControlStateDisabled] forState:UIControlStateNormal];
+            [oldButton setBackgroundImage:nil forState:UIControlStateNormal];
         }
         
         UIButton* newButton = [self.buttons objectAtIndex:selectedIndex];
         [newButton setImage:[newButton imageForState:UIControlStateSelected] forState:UIControlStateNormal];
+        [newButton setBackgroundImage:self.selectionIndicatorImage forState:UIControlStateNormal];
         
         NSUInteger prviousIndex = _selectedIndex;
         _selectedIndex = selectedIndex;
@@ -136,6 +140,7 @@
         
         if (i == self.selectedIndex) {
             [button setImage:[button imageForState:UIControlStateSelected] forState:UIControlStateNormal];
+            [button setBackgroundImage:self.selectionIndicatorImage forState:UIControlStateNormal];
         }
         
         [newButtons addObject:button];
@@ -180,6 +185,10 @@
     UIGraphicsEndImageContext();
     
     return resultImage;
+}
+
+- (UIImage*)defaultSelectionIndicatorImage {
+    return [UIImage imageNamed:@"glow.png"];
 }
 
 
