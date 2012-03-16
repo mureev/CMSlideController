@@ -72,8 +72,11 @@ static CMTabBarController* sharedInstance = nil;
         // Custom logic
         NSMutableArray* tabBarItems = [NSMutableArray array];
         CGRect newFrame = [self frameForViewControllers];
+        
         for (UIViewController* vc in self.viewControllers) {
             [tabBarItems addObject:vc.tabBarItem];
+            
+            // Update frame to real size ()
             vc.view.frame = newFrame;
         }
         [self.tabBar setItems:tabBarItems animated:NO];

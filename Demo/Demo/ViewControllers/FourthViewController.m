@@ -12,10 +12,14 @@
 
 @interface FourthViewController ()
 
+@property (retain) UILabel*     titleLabel;
+
 @end
 
 
 @implementation FourthViewController
+
+@synthesize titleLabel;
 
 
 - (void)viewDidLoad {
@@ -23,6 +27,21 @@
     
     self.title = @"4";
     self.tabBarItem.image = [UIImage imageNamed:@"164-glasses-2.png"];
+    
+    self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)] autorelease];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+    self.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.shadowColor = [UIColor blackColor];
+    self.titleLabel.textAlignment = UITextAlignmentCenter;
+    
+    NSString* frameString = [NSString stringWithFormat:@"%@ - frame {%.0f, %.0f, %.0f, %.0f}", self.title, self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height];
+    NSLog(@"%@", frameString);
+    self.titleLabel.text = frameString;
+    
+    [self.view addSubview:self.titleLabel];
+    [self.view addObserver:self forKeyPath:@"frame" options:0 context:nil];
     
     NSLog(@"%@ - viewDidLoad", self.title);
 }
@@ -64,6 +83,14 @@
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
         return YES;
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"frame"]) {
+        NSString* frameString = [NSString stringWithFormat:@"%@ - frame {%.0f, %.0f, %.0f, %.0f}", self.title, self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height];
+        NSLog(@"%@", frameString);
+        self.titleLabel.text = frameString;
     }
 }
 

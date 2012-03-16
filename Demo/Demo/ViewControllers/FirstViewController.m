@@ -10,15 +10,34 @@
 
 @interface FirstViewController ()
 
+@property (retain) UILabel*     titleLabel;
+
 @end
 
 @implementation FirstViewController
+
+@synthesize titleLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"1";
     self.tabBarItem.image = [UIImage imageNamed:@"22-skull-n-bones.png"];
+    
+    self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)] autorelease];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+    self.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.shadowColor = [UIColor blackColor];
+    self.titleLabel.textAlignment = UITextAlignmentCenter;
+    
+    NSString* frameString = [NSString stringWithFormat:@"%@ - frame {%.0f, %.0f, %.0f, %.0f}", self.title, self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height];
+    NSLog(@"%@", frameString);
+    self.titleLabel.text = frameString;
+    
+    [self.view addSubview:self.titleLabel];
+    [self.view addObserver:self forKeyPath:@"frame" options:0 context:nil];
     
     self.view.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.3];
     
@@ -60,6 +79,14 @@
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
         return YES;
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"frame"]) {
+        NSString* frameString = [NSString stringWithFormat:@"%@ - frame {%.0f, %.0f, %.0f, %.0f}", self.title, self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height];
+        NSLog(@"%@", frameString);
+        self.titleLabel.text = frameString;
     }
 }
 
