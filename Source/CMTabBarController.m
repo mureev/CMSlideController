@@ -10,6 +10,8 @@
 
 @interface CMTabBarController ()
 
+@property (assign) BOOL         firstAppear;
+
 - (CGRect)frameForViewControllers;
 
 @end
@@ -17,6 +19,7 @@
 
 @implementation CMTabBarController
 
+@synthesize firstAppear;
 @synthesize viewControllers, selectedIndex, tabBar=_tabBar, delegate;
 @dynamic selectedViewController;
 
@@ -55,6 +58,8 @@ static CMTabBarController* sharedInstance = nil;
     
     self.tabBar.delegate = self;
     
+    self.firstAppear = YES;
+    
     for (UIViewController* vc in self.viewControllers) {
         [vc loadView];
     }
@@ -63,13 +68,27 @@ static CMTabBarController* sharedInstance = nil;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.selectedViewController viewWillAppear:animated];
+    if (firstAppear) {
+        // Custom logic
+        NSMutableArray* tabBarItems = [NSMutableArray array];
+        CGRect newFrame = [self frameForViewControllers];
+        for (UIViewController* vc in self.viewControllers) {
+            [tabBarItems addObject:vc.tabBarItem];
+            vc.view.frame = newFrame;
+        }
+        [self.tabBar setItems:tabBarItems animated:NO];
+        
+        [self.view addSubview:self.selectedViewController.view];        
+        [self.view bringSubviewToFront:self.tabBar];
+        
+        self.firstAppear = NO;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    [self.selectedViewController viewWillDisappear:animated];
+    //[self.selectedViewController viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad {
@@ -78,19 +97,6 @@ static CMTabBarController* sharedInstance = nil;
     for (UIViewController* vc in self.viewControllers) {
         [vc viewDidLoad];
     }
-    
-    // Custom logic
-    NSMutableArray* tabBarItems = [NSMutableArray array];
-    CGRect newFrame = [self frameForViewControllers];
-    for (UIViewController* vc in self.viewControllers) {
-        [tabBarItems addObject:vc.tabBarItem];
-        vc.view.hidden = YES;
-        vc.view.frame = newFrame;
-        [self.view addSubview:vc.view];
-    }
-    [self.tabBar setItems:tabBarItems animated:NO];
-    self.selectedViewController.view.hidden = NO;
-    [self.view bringSubviewToFront:self.tabBar];
 }
 
 - (void)viewDidUnload {
@@ -153,29 +159,26 @@ static CMTabBarController* sharedInstance = nil;
 #pragma mark - UITabBarDelegate
 
 
-- (void)tabBar:(id)tabBar willSelectItemAtIndex:(NSUInteger)index {
-    [self.selectedViewController viewWillDisappear:NO];
+- (void)tabBar:(id)tabBar willSelectItemAtIndex:(NSUInteger)index currentIndex:(NSUInteger)currentIndex {
+    //
 }
 
-- (void)tabBar:(id)tabBar didSelectItemAtIndex:(NSUInteger)index {
-    for (UIViewController* vc in self.viewControllers) {
-        vc.view.hidden = YES;
-    }
+- (void)tabBar:(id)tabBar didSelectItemAtIndex:(NSUInteger)index prviousIndex:(NSUInteger)prviousIndex {
+    UIViewController* currentViewController = (UIViewController*)[self.viewControllers objectAtIndex:prviousIndex];
+    [currentViewController.view removeFromSuperview];
     
-    self.selectedViewController.view.hidden = NO;
-    
-    [self.selectedViewController viewWillAppear:NO];
+    [self.view addSubview:self.selectedViewController.view];        
+    [self.view bringSubviewToFront:self.tabBar];
 }
 
 - (void)tabBar:(id)tabBar willChangeTabBarStyle:(CMTabBarStyle)tabBarStyle {
-    CGRect newFrame = [self frameForViewControllers];
-    for (UIViewController* vc in self.viewControllers) {
-        vc.view.frame = newFrame;
-    }
 }
 
 - (void)tabBar:(id)tabBar didChangeTabBarStyle:(CMTabBarStyle)tabBarStyle {
-    
+    CGRect newFrame = [self frameForViewControllers];
+    for (UIViewController* vc in self.viewControllers) {
+        vc.view.frame = newFrame;
+    }    
 }
 
 @end

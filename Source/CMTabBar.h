@@ -16,8 +16,8 @@ typedef enum {
 
 @protocol CMTabBarDelegate <NSObject>
 
-- (void)tabBar:(id)tabBar willSelectItemAtIndex:(NSUInteger)index;
-- (void)tabBar:(id)tabBar didSelectItemAtIndex:(NSUInteger)index;
+- (void)tabBar:(id)tabBar willSelectItemAtIndex:(NSUInteger)index currentIndex:(NSUInteger)currentIndex;
+- (void)tabBar:(id)tabBar didSelectItemAtIndex:(NSUInteger)index prviousIndex:(NSUInteger)prviousIndex;
 - (void)tabBar:(id)tabBar willChangeTabBarStyle:(CMTabBarStyle)tabBarStyle;
 - (void)tabBar:(id)tabBar didChangeTabBarStyle:(CMTabBarStyle)tabBarStyle;
 
