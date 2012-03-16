@@ -146,13 +146,13 @@ static CMTabBarController* sharedInstance = nil;
 
 
 - (CGRect)frameForViewControllers {
-    CGFloat height = self.view.frame.size.height;
+    CGFloat height = self.view.bounds.size.height;
     
     if (self.tabBar.tabBarStyle == CMTabBarStyleDefault) {
-        height -= self.tabBar.frame.size.height;
+        height -= self.tabBar.bounds.size.height;
     }
     
-    return CGRectMake(0, 0, self.view.frame.size.width, height);
+    return CGRectMake(0, 0, self.view.bounds.size.width, height);
 }
 
 
@@ -160,7 +160,11 @@ static CMTabBarController* sharedInstance = nil;
 
 
 - (void)tabBar:(id)tabBar willSelectItemAtIndex:(NSUInteger)index currentIndex:(NSUInteger)currentIndex {
-    //
+    UIViewController* selectViewController = (UIViewController*)[self.viewControllers objectAtIndex:index];
+    CGRect frame = [self frameForViewControllers];
+    if (!CGRectEqualToRect(frame, selectViewController.view.frame)) {
+        selectViewController.view.frame = frame;
+    }
 }
 
 - (void)tabBar:(id)tabBar didSelectItemAtIndex:(NSUInteger)index prviousIndex:(NSUInteger)prviousIndex {
