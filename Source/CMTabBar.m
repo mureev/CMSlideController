@@ -125,7 +125,7 @@
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(i * buttonSize.width + offset, 0, buttonSize.width, buttonSize.height)];
         button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
-        UIImage* buttonImage = [CMTabBarUtils tabBarImage:tabBarItem.image size:button.frame.size backgroundImage:nil];
+        UIImage* buttonImage = [CMTabBarUtils tabBarImage:tabBarItem.image size:buttonSize backgroundImage:nil];
         UIImage* buttonPressedImage = [CMTabBarUtils tabBarImage:tabBarItem.image size:buttonSize backgroundImage:[UIImage imageNamed:@"selectedBackground.png"]];
         
         [button setImage:buttonImage forState:UIControlStateNormal];
