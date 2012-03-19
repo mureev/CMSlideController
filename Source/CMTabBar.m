@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) NSArray*      buttons;
 @property (nonatomic, retain) UIImageView*  backgroundImageView;
+@property (nonatomic, retain) UIImageView*  selectedImageView;
 
 - (UIImage*)defaultBackgroundImage;
 - (UIImage*)defaultSelectionIndicatorImage;
@@ -24,7 +25,7 @@
 @implementation CMTabBar
 
 @synthesize delegate, selectedIndex=_selectedIndex, tabBarStyle=_tabBarStyle, tintColor, backgroundImage, selectionIndicatorImage;
-@synthesize buttons, backgroundImageView;
+@synthesize buttons, backgroundImageView, selectedImageView;
 
 
 - (id)initWithFrame:(CGRect)frame {
@@ -36,9 +37,15 @@
         
         self.backgroundImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)] autorelease];
         self.backgroundImageView.backgroundColor = [UIColor clearColor];
-        self.backgroundImageView.image = [self defaultBackgroundImage];
+        self.backgroundImageView.image = self.backgroundImage;
         self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.backgroundImageView];
+        
+        self.selectedImageView = [[[UIImageView alloc] initWithImage:self.selectionIndicatorImage] autorelease];
+        self.selectedImageView.backgroundColor = [UIColor clearColor];
+        self.selectedImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        self.selectedImageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self addSubview:self.selectedImageView];
         
         self.tabBarStyle = CMTabBarStyleDefault;
     }
@@ -60,12 +67,12 @@
         if (_selectedIndex < [self.buttons count]) {
             UIButton* oldButton = [self.buttons objectAtIndex:_selectedIndex];
             [oldButton setImage:[oldButton imageForState:UIControlStateDisabled] forState:UIControlStateNormal];
-            [oldButton setBackgroundImage:nil forState:UIControlStateNormal];
         }
         
         UIButton* newButton = [self.buttons objectAtIndex:selectedIndex];
         [newButton setImage:[newButton imageForState:UIControlStateSelected] forState:UIControlStateNormal];
-        [newButton setBackgroundImage:self.selectionIndicatorImage forState:UIControlStateNormal];
+        
+        self.selectedImageView.center = newButton.center;
         
         NSUInteger prviousIndex = _selectedIndex;
         _selectedIndex = selectedIndex;
@@ -140,7 +147,7 @@
         
         if (i == self.selectedIndex) {
             [button setImage:[button imageForState:UIControlStateSelected] forState:UIControlStateNormal];
-            [button setBackgroundImage:self.selectionIndicatorImage forState:UIControlStateNormal];
+            self.selectedImageView.center = button.center;
         }
         
         [newButtons addObject:button];
