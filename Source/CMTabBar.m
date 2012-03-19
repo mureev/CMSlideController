@@ -175,9 +175,8 @@
     [stretchedTopImage drawInRect:CGRectMake(0, 0, width, topImage.size.height)];
     
     // Draw a solid black color for the bottom of the background
-    //[[UIColor blackColor] set];
-    //CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, topImage.size.height + 5, width, topImage.size.height));
-    //CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, topImage.size.height + 0, width, topImage.size.height));
+    [[UIColor blackColor] set];
+    CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, self.frame.size.height / 2, width, self.frame.size.height / 2));
     
     // clear background for arrow image;
     //UIImage* arrow = [self tabBarArrowImage];
