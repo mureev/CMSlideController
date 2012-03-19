@@ -7,6 +7,8 @@
 
 #import "CMTabBarController.h"
 
+#import "CMTabBarUtils.h"
+
 
 @interface CMTabBarController ()
 
@@ -86,12 +88,34 @@ static CMTabBarController* sharedInstance = nil;
         
         self.firstAppear = NO;
     }
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
+        [self.selectedViewController viewWillAppear:animated];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];    
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
+        [self.selectedViewController viewDidAppear:animated];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    //[self.selectedViewController viewWillDisappear:animated];
+    if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
+        [self.selectedViewController viewWillDisappear:animated];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
+        [self.selectedViewController viewDidDisappear:animated];
+    }
 }
 
 - (void)viewDidLoad {
@@ -163,10 +187,15 @@ static CMTabBarController* sharedInstance = nil;
 
 
 - (void)tabBar:(id)tabBar willSelectItemAtIndex:(NSUInteger)index currentIndex:(NSUInteger)currentIndex {
-    UIViewController* selectViewController = (UIViewController*)[self.viewControllers objectAtIndex:index];
+    UIViewController* willSelectViewController = (UIViewController*)[self.viewControllers objectAtIndex:index];
     CGRect frame = [self frameForViewControllers];
-    if (!CGRectEqualToRect(frame, selectViewController.view.frame)) {
-        selectViewController.view.frame = frame;
+    if (!CGRectEqualToRect(frame, willSelectViewController.view.frame)) {
+        willSelectViewController.view.frame = frame;
+    }
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
+        [self.selectedViewController viewWillDisappear:NO];
+        [willSelectViewController viewWillAppear:NO];
     }
 }
 
@@ -176,6 +205,11 @@ static CMTabBarController* sharedInstance = nil;
     
     [self.view addSubview:self.selectedViewController.view];        
     [self.view bringSubviewToFront:self.tabBar];
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
+        [currentViewController viewDidDisappear:NO];
+        [self.selectedViewController viewDidAppear:NO];
+    }
 }
 
 - (void)tabBar:(id)tabBar willChangeTabBarStyle:(CMTabBarStyle)tabBarStyle {

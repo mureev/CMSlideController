@@ -85,9 +85,9 @@
         }
         
         if (tabBarStyle == CMTabBarStyleDefault) {
-            self.alpha = 1.0;
+            self.backgroundImageView.alpha = 1.0f;
         } else {
-            self.alpha = 0.7;
+            self.backgroundImageView.alpha = 0.7f;
         }
         
         _tabBarStyle = tabBarStyle;
