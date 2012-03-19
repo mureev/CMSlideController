@@ -7,7 +7,7 @@
 ---
 ###Why CMTabBarController?
 
-CMTabBarController is inspired by the UITableViewController and cutom tab bar from <a href="https://github.com/boctor/idev-recipes">idev-recipes</a>.
+CMTabBarController is inspired by the UITabBarController and cutom tab bar from <a href="https://github.com/boctor/idev-recipes">idev-recipes</a>.
 Mostly it use same custom UI from idev-recipes with native behaviour.
 
 Marrying the feature set from both, CMTabBarController throws 
