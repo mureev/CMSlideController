@@ -34,16 +34,17 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
-        self.backgroundImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)] autorelease];
+        self.backgroundImageView = [[[UIImageView alloc] initWithImage:[self defaultBackgroundImage]] autorelease];
+        self.backgroundImageView.contentMode = UIViewContentModeBottom;
+        self.backgroundImageView.center = CGPointMake(self.center.x, self.frame.size.height/2);
         self.backgroundImageView.backgroundColor = [UIColor clearColor];
-        self.backgroundImageView.image = [self defaultBackgroundImage];
-        self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+        self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:self.backgroundImageView];
         
         self.selectedImageView = [[[UIImageView alloc] initWithImage:[self defaultSelectionIndicatorImage]] autorelease];
+        self.selectedImageView.contentMode = UIViewContentModeBottom;
         self.selectedImageView.backgroundColor = [UIColor clearColor];
         self.selectedImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        self.selectedImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:self.selectedImageView];
         
         self.tabBarStyle = CMTabBarStyleDefault;
