@@ -12,7 +12,7 @@ Mostly it use same custom UI from idev-recipes with native behaviour.
 
 Marrying the feature set from both, CMTabBarController throws 
 
-* iOS 4.x and iOS 5.x suppotr
+* iOS 4.x and iOS 5.x suppot
 * Rotation handling
 * Custom selection background and mask
 * Custom tab bar background
