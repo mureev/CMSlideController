@@ -7,6 +7,7 @@
 //
 
 #import "ThirdViewController.h"
+#import "UIViewController+CMTabBarController.h"
 
 @interface ThirdViewController ()
 
@@ -50,6 +51,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.customTbBarController.tabBar.tabBarStyle = CMTabBarStyleTranslucentGloss;
     
     NSLog(@"%@ - viewWillAppear", self.title);
 }

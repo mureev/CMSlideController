@@ -10,7 +10,9 @@
 
 typedef enum {
     CMTabBarStyleDefault,
+    CMTabBarStyleDefaultGloss,
     CMTabBarStyleTranslucent,
+    CMTabBarStyleTranslucentGloss,
 } CMTabBarStyle;
 
 
@@ -32,8 +34,5 @@ typedef enum {
 - (void)setItems:(NSArray*)tabBarItems animated:(BOOL)animated;
 
 @property (nonatomic, assign) CMTabBarStyle         tabBarStyle;
-@property (nonatomic, retain) UIColor*              tintColor;
-@property (nonatomic, retain) UIImage*              backgroundImage;
-@property (nonatomic, retain) UIImage*              selectionIndicatorImage; 
 
 @end

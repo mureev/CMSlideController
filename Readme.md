@@ -28,4 +28,4 @@ CMTabBarController's goal was to make it fully customizable and stable for using
 ---
 ###Licensing
 
-CMTabBarController is available under the MIT license. See the <a href="http://github.com/mureev/CMTabBarController/LICENSE">LICENSE</a> file for more info.
+CMTabBarController is available under the MIT license. See the <a href="http://raw.github.com/mureev/CMTabBarController/master/LICENSE">LICENSE</a> file for more info.

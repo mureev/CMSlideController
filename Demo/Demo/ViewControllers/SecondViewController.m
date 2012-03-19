@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import "UIViewController+CMTabBarController.h"
 
 @interface SecondViewController ()
 
@@ -52,6 +53,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.customTbBarController.tabBar.tabBarStyle = CMTabBarStyleDefaultGloss;
     
     NSLog(@"%@ - viewWillAppear", self.title);
 }

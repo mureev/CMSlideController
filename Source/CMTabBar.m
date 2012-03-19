@@ -12,6 +12,7 @@
 
 @interface CMTabBar()
 
+@property (nonatomic, assign) BOOL          useGlossEffect;
 @property (nonatomic, retain) NSArray*      buttons;
 @property (nonatomic, retain) UIImageView*  backgroundImageView;
 @property (nonatomic, retain) UIImageView*  selectedImageView;
@@ -24,24 +25,22 @@
 
 @implementation CMTabBar
 
-@synthesize delegate, selectedIndex=_selectedIndex, tabBarStyle=_tabBarStyle, tintColor, backgroundImage, selectionIndicatorImage;
-@synthesize buttons, backgroundImageView, selectedImageView;
+@synthesize delegate, selectedIndex=_selectedIndex, tabBarStyle=_tabBarStyle;
+@synthesize useGlossEffect, buttons, backgroundImageView, selectedImageView;
 
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.backgroundImage = [self defaultBackgroundImage];
-        self.selectionIndicatorImage = [self defaultSelectionIndicatorImage];
         
         self.backgroundImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)] autorelease];
         self.backgroundImageView.backgroundColor = [UIColor clearColor];
-        self.backgroundImageView.image = self.backgroundImage;
+        self.backgroundImageView.image = [self defaultBackgroundImage];
         self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.backgroundImageView];
         
-        self.selectedImageView = [[[UIImageView alloc] initWithImage:self.selectionIndicatorImage] autorelease];
+        self.selectedImageView = [[[UIImageView alloc] initWithImage:[self defaultSelectionIndicatorImage]] autorelease];
         self.selectedImageView.backgroundColor = [UIColor clearColor];
         self.selectedImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         self.selectedImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -93,8 +92,20 @@
         
         if (tabBarStyle == CMTabBarStyleDefault) {
             self.backgroundImageView.alpha = 1.0f;
-        } else {
+            self.useGlossEffect = NO;
+            self.backgroundImageView.image = [self defaultBackgroundImage];
+        } else if (tabBarStyle == CMTabBarStyleDefaultGloss) {
+            self.backgroundImageView.alpha = 1.0f;
+            self.useGlossEffect = YES;
+            self.backgroundImageView.image = [self defaultBackgroundImage];
+        } else if (tabBarStyle == CMTabBarStyleTranslucent) {
             self.backgroundImageView.alpha = 0.7f;
+            self.useGlossEffect = NO;
+            self.backgroundImageView.image = [self defaultBackgroundImage];
+        } else if (tabBarStyle == CMTabBarStyleTranslucentGloss) {
+            self.backgroundImageView.alpha = 0.7f;
+            self.useGlossEffect = YES;
+            self.backgroundImageView.image = [self defaultBackgroundImage];
         }
         
         _tabBarStyle = tabBarStyle;
@@ -175,16 +186,10 @@
     [stretchedTopImage drawInRect:CGRectMake(0, 0, width, topImage.size.height)];
     
     // Draw a solid black color for the bottom of the background
-    [[UIColor blackColor] set];
-    CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, self.frame.size.height / 2, width, self.frame.size.height / 2));
-    
-    // clear background for arrow image;
-    //UIImage* arrow = [self tabBarArrowImage];
-    //CGContextClearRect(UIGraphicsGetCurrentContext(), CGRectMake(width/2, 5, arrow.size.width, 2));
-    
-    // set this positions to tabbar
-    //[self.tabBar addArrowAt:CGRectMake(width/2, 0, arrow.size.width, arrow.size.height)];
-    //[self.tabBarArrowImage drawInRect:CGRectMake(width/2, 0, arrow.size.width, arrow.size.height)];
+    if (self.useGlossEffect) {
+        [[UIColor blackColor] set];
+        CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, self.frame.size.height / 2, width, self.frame.size.height / 2));
+    }
     
     // Generate a new image
     UIImage* resultImage = UIGraphicsGetImageFromCurrentImageContext();
