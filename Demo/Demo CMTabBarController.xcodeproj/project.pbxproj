@@ -33,6 +33,8 @@
 		AD9917111511D3CD00EFC2B7 /* selectedBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD99170B1511D3CD00EFC2B7 /* selectedBackground@2x.png */; };
 		AD9917161511D41600EFC2B7 /* tabBarGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9917141511D41500EFC2B7 /* tabBarGradient.png */; };
 		AD9917171511D41600EFC2B7 /* tabBarGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9917151511D41500EFC2B7 /* tabBarGradient@2x.png */; };
+		AD9A101015170BED0036E6AB /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9A100E15170BED0036E6AB /* arrow.png */; };
+		AD9A101115170BED0036E6AB /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9A100F15170BED0036E6AB /* arrow@2x.png */; };
 		AD9D9B7315121186006677E4 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B7015121186006677E4 /* UIControl+Blocks.m */; };
 		AD9D9B7B15122043006677E4 /* CMTabBarUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B7A15122043006677E4 /* CMTabBarUtils.m */; };
 		AD9D9B88151222C8006677E4 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D9B7F151222C8006677E4 /* FifthViewController.m */; };
@@ -76,6 +78,8 @@
 		AD99170B1511D3CD00EFC2B7 /* selectedBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectedBackground@2x.png"; sourceTree = "<group>"; };
 		AD9917141511D41500EFC2B7 /* tabBarGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarGradient.png; sourceTree = "<group>"; };
 		AD9917151511D41500EFC2B7 /* tabBarGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarGradient@2x.png"; sourceTree = "<group>"; };
+		AD9A100E15170BED0036E6AB /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		AD9A100F15170BED0036E6AB /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		AD9D9B6F15121186006677E4 /* UIControl+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Blocks.h"; sourceTree = "<group>"; };
 		AD9D9B7015121186006677E4 /* UIControl+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Blocks.m"; sourceTree = "<group>"; };
 		AD9D9B7915122043006677E4 /* CMTabBarUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTabBarUtils.h; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 		AD9917071511D3CD00EFC2B7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AD9A100E15170BED0036E6AB /* arrow.png */,
+				AD9A100F15170BED0036E6AB /* arrow@2x.png */,
 				AD9917081511D3CD00EFC2B7 /* glow.png */,
 				AD9917091511D3CD00EFC2B7 /* glow@2x.png */,
 				AD99170A1511D3CD00EFC2B7 /* selectedBackground.png */,
@@ -321,6 +327,8 @@
 				AD9917111511D3CD00EFC2B7 /* selectedBackground@2x.png in Resources */,
 				AD9917161511D41600EFC2B7 /* tabBarGradient.png in Resources */,
 				AD9917171511D41600EFC2B7 /* tabBarGradient@2x.png in Resources */,
+				AD9A101015170BED0036E6AB /* arrow.png in Resources */,
+				AD9A101115170BED0036E6AB /* arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
