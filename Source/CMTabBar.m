@@ -18,6 +18,7 @@
 
 - (UIImage*)defaultBackgroundImage;
 - (UIImage*)defaultSelectionIndicatorImage;
+- (void)moveArrowPostionForButton:(UIButton*)button;
 
 @end
 
@@ -35,10 +36,11 @@
         self.backgroundImage = [self defaultBackgroundImage];
         self.selectionIndicatorImage = [self defaultSelectionIndicatorImage];
         
-        self.backgroundImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)] autorelease];
+        self.backgroundImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, -5, self.backgroundImage.size.width, self.frame.size.height + 5)] autorelease];
+        self.backgroundImageView.center = CGPointMake(self.center.x, self.backgroundImageView.center.y);
         self.backgroundImageView.backgroundColor = [UIColor clearColor];
         self.backgroundImageView.image = self.backgroundImage;
-        self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight;
+        self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;;
         [self addSubview:self.backgroundImageView];
         
         self.selectedImageView = [[[UIImageView alloc] initWithImage:self.selectionIndicatorImage] autorelease];
@@ -171,21 +173,16 @@
     
     // Create a stretchable image for the top of the background and draw it
     UIImage* stretchedTopImage = [topImage stretchableImageWithLeftCapWidth:0 topCapHeight:0];
-    //[stretchedTopImage drawInRect:CGRectMake(0, 5, width, topImage.size.height)];
-    [stretchedTopImage drawInRect:CGRectMake(0, 0, width, topImage.size.height)];
+    [stretchedTopImage drawInRect:CGRectMake(0, 5, width, topImage.size.height)];
     
     // Draw a solid black color for the bottom of the background
     //[[UIColor blackColor] set];
-    //CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, topImage.size.height + 5, width, topImage.size.height));
-    //CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, topImage.size.height + 0, width, topImage.size.height));
+    //CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, (self.frame.size.height + 5) / 2, width, (self.frame.size.height + 5) / 2));
     
     // clear background for arrow image;
-    //UIImage* arrow = [self tabBarArrowImage];
-    //CGContextClearRect(UIGraphicsGetCurrentContext(), CGRectMake(width/2, 5, arrow.size.width, 2));
-    
-    // set this positions to tabbar
-    //[self.tabBar addArrowAt:CGRectMake(width/2, 0, arrow.size.width, arrow.size.height)];
-    //[self.tabBarArrowImage drawInRect:CGRectMake(width/2, 0, arrow.size.width, arrow.size.height)];
+    UIImage* arrow = [UIImage imageNamed:@"arrow.png"];
+    CGContextClearRect(UIGraphicsGetCurrentContext(), CGRectMake(width/2 - arrow.size.width/2 - 1, 5, arrow.size.width, 2));
+    [arrow drawInRect:CGRectMake(width/2 - arrow.size.width/2 - 1, 0, arrow.size.width, arrow.size.height)];
     
     // Generate a new image
     UIImage* resultImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -196,6 +193,10 @@
 
 - (UIImage*)defaultSelectionIndicatorImage {
     return [UIImage imageNamed:@"glow.png"];
+}
+
+- (void)moveArrowPostionForButton:(UIButton*)button {
+    
 }
 
 
