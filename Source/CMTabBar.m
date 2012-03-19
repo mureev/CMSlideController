@@ -169,11 +169,11 @@
     UIImage* topImage = [UIImage imageNamed:@"tabBarGradient.png"];
     
     // Create a new image context
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, topImage.size.height + 5), NO, 0.0);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, topImage.size.height + 4), NO, 0.0);
     
     // Create a stretchable image for the top of the background and draw it
     UIImage* stretchedTopImage = [topImage stretchableImageWithLeftCapWidth:0 topCapHeight:0];
-    [stretchedTopImage drawInRect:CGRectMake(0, 5, width, topImage.size.height)];
+    [stretchedTopImage drawInRect:CGRectMake(0, 4, width, topImage.size.height)];
     
     // Draw a solid black color for the bottom of the background
     //[[UIColor blackColor] set];
@@ -181,7 +181,7 @@
     
     // clear background for arrow image;
     UIImage* arrow = [UIImage imageNamed:@"arrow.png"];
-    CGContextClearRect(UIGraphicsGetCurrentContext(), CGRectMake(width/2 - arrow.size.width/2 - 1, 5, arrow.size.width, 2));
+    CGContextClearRect(UIGraphicsGetCurrentContext(), CGRectMake(width/2 - arrow.size.width/2 - 1, 4, arrow.size.width, 2));
     [arrow drawInRect:CGRectMake(width/2 - arrow.size.width/2 - 1, 0, arrow.size.width, arrow.size.height)];
     
     // Generate a new image
