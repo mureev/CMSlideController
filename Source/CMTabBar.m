@@ -36,17 +36,17 @@
         self.backgroundImage = [self defaultBackgroundImage];
         self.selectionIndicatorImage = [self defaultSelectionIndicatorImage];
         
-        self.backgroundImageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, -5, self.backgroundImage.size.width, self.frame.size.height + 5)] autorelease];
-        self.backgroundImageView.center = CGPointMake(self.center.x, self.backgroundImageView.center.y);
+        self.backgroundImageView = [[[UIImageView alloc] initWithImage:self.backgroundImage] autorelease];
+        self.backgroundImageView.contentMode = UIViewContentModeBottom;
+        self.backgroundImageView.center = CGPointMake(self.center.x, 22 - 2);
         self.backgroundImageView.backgroundColor = [UIColor clearColor];
-        self.backgroundImageView.image = self.backgroundImage;
-        self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;;
+        self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:self.backgroundImageView];
         
         self.selectedImageView = [[[UIImageView alloc] initWithImage:self.selectionIndicatorImage] autorelease];
+        self.selectedImageView.contentMode = UIViewContentModeBottom;
         self.selectedImageView.backgroundColor = [UIColor clearColor];
         self.selectedImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        self.selectedImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:self.selectedImageView];
         
         self.tabBarStyle = CMTabBarStyleDefault;
@@ -73,6 +73,7 @@
         
         UIButton* newButton = [self.buttons objectAtIndex:selectedIndex];
         [newButton setImage:[newButton imageForState:UIControlStateSelected] forState:UIControlStateNormal];
+        [self moveArrowPostionForButton:newButton];
         
         self.selectedImageView.center = newButton.center;
         
@@ -168,8 +169,7 @@
     UIImage* topImage = [UIImage imageNamed:@"tabBarGradient.png"];
     
     // Create a new image context
-    //UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, topImage.size.height*2 + 5), NO, 0.0);
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, self.frame.size.height), NO, 0.0);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, topImage.size.height + 5), NO, 0.0);
     
     // Create a stretchable image for the top of the background and draw it
     UIImage* stretchedTopImage = [topImage stretchableImageWithLeftCapWidth:0 topCapHeight:0];
@@ -196,7 +196,9 @@
 }
 
 - (void)moveArrowPostionForButton:(UIButton*)button {
-    
+    [UIView animateWithDuration:0.1 animations:^{
+        self.backgroundImageView.center = CGPointMake(button.center.x, self.backgroundImageView.center.y);
+    }];
 }
 
 
