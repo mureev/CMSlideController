@@ -151,6 +151,7 @@
         if (i == self.selectedIndex) {
             [button setImage:[button imageForState:UIControlStateSelected] forState:UIControlStateNormal];
             self.selectedImageView.center = button.center;
+            [self moveArrowPostionForButton:button];
         }
         
         [newButtons addObject:button];
