@@ -37,7 +37,7 @@
     UIGraphicsBeginImageContextWithOptions(targetSize, NO, 0.0);
     
     // Draw the new tab bar image at the center
-    [tabBarImage drawInRect:CGRectMake((targetSize.width/2.0) - (startImage.size.width/2.0), (targetSize.height/2.0) - (startImage.size.height/2.0), startImage.size.width, startImage.size.height)];
+    [tabBarImage drawInRect:CGRectMake(round((targetSize.width/2.0) - (startImage.size.width/2.0)), round((targetSize.height/2.0) - (startImage.size.height/2.0)), startImage.size.width, startImage.size.height)];
     
     // Generate a new image
     UIImage* resultImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -51,7 +51,7 @@
     UIGraphicsBeginImageContextWithOptions(targetSize, NO, 0.0);
     if (backImage) {
         // Draw the background image centered
-        [backImage drawInRect:CGRectMake((targetSize.width - CGImageGetWidth(backImage.CGImage)) / 2, (targetSize.height - CGImageGetHeight(backImage.CGImage)) / 2, CGImageGetWidth(backImage.CGImage), CGImageGetHeight(backImage.CGImage))];
+        [backImage drawInRect:CGRectMake(round((targetSize.width - CGImageGetWidth(backImage.CGImage)) / 2), round((targetSize.height - CGImageGetHeight(backImage.CGImage))) / 2, CGImageGetWidth(backImage.CGImage), CGImageGetHeight(backImage.CGImage))];
     } else {
         [[UIColor colorWithWhite:0.8 alpha:1.0] set];
         UIRectFill(CGRectMake(0, 0, targetSize.width, targetSize.height));
