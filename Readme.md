@@ -5,7 +5,7 @@
 ![CMTabBarController for iOS Screenshot](http://github.com/mureev/CMTabBarController/raw/master/Demo/Screenshots/Screenshot.png)
 
 ---
-###Why CMTabBarController?
+### Why CMTabBarController?
 
 CMTabBarController is inspired by the UITabBarController and cutom tab bar from <a href="https://github.com/boctor/idev-recipes">idev-recipes</a>.
 Mostly it use same custom UI from idev-recipes with native behaviour.
@@ -22,10 +22,10 @@ Marrying the feature set from both, CMTabBarController throws
 CMTabBarController's goal was to make it fully customizable and stable for using in any project
 
 ---
-###How to use
+### How to use
 //
 
 ---
-###Licensing
+### Licensing
 
 CMTabBarController is available under the MIT license. See the <a href="http://raw.github.com/mureev/CMTabBarController/master/LICENSE">LICENSE</a> file for more info.
