@@ -14,6 +14,7 @@
 		FC1396321858488300B4F88C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1396311858488300B4F88C /* main.m */; };
 		FC1396361858488300B4F88C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1396351858488300B4F88C /* AppDelegate.m */; };
 		FC1396381858488300B4F88C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1396371858488300B4F88C /* Images.xcassets */; };
+		FC1396571858498400B4F88C /* CMSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1396561858498400B4F88C /* CMSlideController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		FC1396341858488300B4F88C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FC1396351858488300B4F88C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FC1396371858488300B4F88C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FC1396551858498400B4F88C /* CMSlideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSlideController.h; sourceTree = "<group>"; };
+		FC1396561858498400B4F88C /* CMSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSlideController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 		FC13962B1858488300B4F88C /* CMSlideController Demo */ = {
 			isa = PBXGroup;
 			children = (
+				FC1396541858495200B4F88C /* Source */,
 				FC1396341858488300B4F88C /* AppDelegate.h */,
 				FC1396351858488300B4F88C /* AppDelegate.m */,
 				FC1396371858488300B4F88C /* Images.xcassets */,
@@ -91,6 +95,16 @@
 				FC1396331858488300B4F88C /* CMSlideController Demo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC1396541858495200B4F88C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				FC1396551858498400B4F88C /* CMSlideController.h */,
+				FC1396561858498400B4F88C /* CMSlideController.m */,
+			);
+			name = Source;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC1396361858488300B4F88C /* AppDelegate.m in Sources */,
+				FC1396571858498400B4F88C /* CMSlideController.m in Sources */,
 				FC1396321858488300B4F88C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +309,7 @@
 				FC1396501858488300B4F88C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
