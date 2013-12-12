@@ -113,12 +113,12 @@
 
 - (CGAffineTransform)scaleUpTransform:(CGAffineTransform)transform {
     CGAffineTransform result = CGAffineTransformScale(transform, 1.0 / self.scale, 1.0 / self.scale);
-    return result;
+    return CGAffineTransformTranslate(result, -152, 0);
 }
 
 - (CGAffineTransform)scaleDownTransform:(CGAffineTransform)transform {
     CGAffineTransform result = CGAffineTransformScale(transform, self.scale, self.scale);
-    return result;
+    return CGAffineTransformTranslate(result, 320, 0);
 }
 
 @end
