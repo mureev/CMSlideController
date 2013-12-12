@@ -7,15 +7,53 @@
 //
 
 #import "AppDelegate.h"
+#import "CMSlideController.h"
+#import "MenuViewController.h"
+#import "DCIntrospect.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    UIViewController *vc1 = [MenuViewController new];
+    
+    UIViewController *vc2 = [UIViewController new];
+    vc2.view.backgroundColor = [UIColor clearColor];
+    UINavigationController *nvc2 = [[UINavigationController alloc] initWithRootViewController:vc2];
+    nvc2.view.backgroundColor = [UIColor greenColor];
+    
+    UIViewController *vc3 = [UIViewController new];
+    vc3.view.backgroundColor = [UIColor blueColor];
+    UINavigationController *nvc3 = [[UINavigationController alloc] initWithRootViewController:vc3];
+    
+    CMSlideController *slideController = [[CMSlideController alloc] initWithMenuController:vc1 contentController:nvc2];
+    slideController.backgoundImageView.image = [UIImage imageNamed:@"default"];
+    
+    self.window.rootViewController = slideController;
+    
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [slideController openMenuAnimated:YES completion:nil];
+    });
+    
+    delayInSeconds = 4.0;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [slideController pushContentController:nvc3 animated:YES completion:nil];
+        //[slideController closeMenuAnimated:YES completion:nil];
+    });
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    // always call after makeKeyAndDisplay.
+#if TARGET_IPHONE_SIMULATOR
+    [[DCIntrospect sharedIntrospector] start];
+#endif
+    
     return YES;
 }
 

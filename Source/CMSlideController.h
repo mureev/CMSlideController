@@ -9,4 +9,17 @@
 
 @interface CMSlideController : UIViewController
 
+@property (nonatomic) CGFloat scale;
+@property (nonatomic) UIImageView *backgoundImageView;
+
+@property (nonatomic, readonly) UIViewController *menuViewController;
+@property (nonatomic, readonly) UIViewController *contentViewController;
+
+- (id)initWithMenuController:(UIViewController *)menuViewController
+           contentController:(UIViewController *)contentViewController;
+
+- (void)openMenuAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
+- (void)closeMenuAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
+- (void)pushContentController:(UIViewController *)contentViewController animated:(BOOL)animated completion:(void (^)(BOOL finished))completion;
+
 @end
