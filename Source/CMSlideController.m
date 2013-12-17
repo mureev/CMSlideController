@@ -9,7 +9,10 @@
 
 @interface CMSlideController ()
 
+@property (nonatomic) BOOL  menuOpen;
+@property (nonatomic) UIButton *closeOverlayButton;
 @property (nonatomic, readwrite) UIViewController *menuViewController;
+@property (nonatomic, readwrite) UIViewController *prevContentViewController;
 @property (nonatomic, readwrite) UIViewController *contentViewController;
 
 @end
@@ -19,7 +22,8 @@
 - (id)initWithMenuController:(UIViewController *)menuViewController contentController:(UIViewController *)contentViewController {
     self = [super init];
     if (self) {
-        self.scale = 0.475f;
+        self.scale = 0.5634f;
+        self.menuOpen = NO;
         
         self.backgoundImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         self.backgoundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -38,6 +42,9 @@
         
         // Prepeare
         
+        // TODO: should move scroll to top fix here
+        
+        [self applyShadowToViewController:self.contentViewController];
         self.menuViewController.view.transform = [self scaleUpTransform:self.menuViewController.view.transform];
     }
     return self;
@@ -54,57 +61,109 @@
 }
 
 - (void)openMenuAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion {
+    if (!self.menuOpen) {
+        self.menuOpen = YES;
+        
+        [self animateMenuOpenWithCompletion:^(BOOL finished) {
+            [self applyOverlayButtonToMainViewController];
+            
+            if (completion) {
+                completion(finished);
+            }
+        }];
+    } else if (completion) {
+        completion(YES);
+    }
+}
+
+- (void)closeMenuAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion {
+    if (self.menuOpen) {
+        self.menuOpen = NO;
+        
+        [self.closeOverlayButton removeFromSuperview];
+        self.closeOverlayButton = nil;
+        
+        [self animateMenuCloseWithCompletion:completion];
+    } else if (completion) {
+        completion(YES);
+    }
+}
+
+- (void)pushContentController:(UIViewController *)contentViewController animated:(BOOL)animated completion:(void (^)(BOOL finished))completion {
+    if (self.contentViewController != contentViewController) {
+        self.prevContentViewController = self.contentViewController;
+        self.contentViewController = contentViewController;
+        
+        [self.contentViewController willMoveToParentViewController:self];
+        [self applyShadowToViewController:self.contentViewController];
+        [self addChildViewController:self.contentViewController];
+        
+        // Do it always animated
+        
+        [self transitionFromViewController:self.prevContentViewController toViewController:self.contentViewController duration:0.3 options:0 animations:nil completion:^(BOOL finished) {
+            [self.contentViewController didMoveToParentViewController:self];
+            [self.prevContentViewController removeFromParentViewController];
+            self.prevContentViewController = nil;
+        }];
+        
+        if (self.menuOpen) {
+            [self animateTransitionFromView:self.prevContentViewController.view toView:self.contentViewController.view completion:nil];
+            [self closeMenuAnimated:animated completion:completion];
+        } else {
+            [self animateTransitionFromView:self.prevContentViewController.view toView:self.contentViewController.view completion:completion];
+        }
+    } else {
+        [self closeMenuAnimated:animated completion:completion];
+    }
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
+#pragma mark - Animate transitions
+
+
+- (void)animateMenuOpenWithCompletion:(void (^)(BOOL finished))completion {
     [UIView animateWithDuration:0.3 animations:^{
         self.contentViewController.view.transform = [self scaleDownTransform:self.contentViewController.view.transform];
         self.menuViewController.view.transform = [self scaleDownTransform:self.menuViewController.view.transform];
     } completion:^(BOOL finished) {
         if (completion) {
-            completion (finished);
+            completion(finished);
         }
     }];
 }
 
-- (void)closeMenuAnimated:(BOOL)animated completion:(void (^)(BOOL finished))completion {
+- (void)animateMenuCloseWithCompletion:(void (^)(BOOL finished))completion {
     [UIView animateWithDuration:0.3 animations:^{
         self.contentViewController.view.transform = [self scaleUpTransform:self.contentViewController.view.transform];
         self.menuViewController.view.transform = [self scaleUpTransform:self.menuViewController.view.transform];
+        self.prevContentViewController.view.transform = [self scaleUpTransform:self.prevContentViewController.view.transform];
     } completion:^(BOOL finished) {
         if (completion) {
-            completion (finished);
+            completion(finished);
         }
     }];
 }
 
-- (void)pushContentController:(UIViewController *)contentViewController animated:(BOOL)animated completion:(void (^)(BOOL finished))completion {
-    UIViewController *prevViewController = self.contentViewController;
-    self.contentViewController = contentViewController;
+
+- (void)animateTransitionFromView:(UIView *)fromView toView:(UIView *)toView completion:(void (^)(BOOL finished))completion {
+    fromView.alpha = 1;
+    toView.alpha = 0;
+    toView.transform = fromView.transform;
     
-    [self.contentViewController willMoveToParentViewController:self];
-    [self addChildViewController:self.contentViewController];
-    
-    self.contentViewController.view.alpha = 0;
-    self.contentViewController.view.transform = prevViewController.view.transform;
-    
-    [self transitionFromViewController:prevViewController toViewController:self.contentViewController duration:0.3 options:0 animations:^{
-        prevViewController.view.alpha = 0;
-        self.contentViewController.view.alpha = 1;
-        prevViewController.view.transform = [self scaleUpTransform:prevViewController.view.transform];
-        self.contentViewController.view.transform = [self scaleUpTransform:self.contentViewController.view.transform];
-        self.menuViewController.view.transform = [self scaleUpTransform:self.menuViewController.view.transform];
+    [UIView animateWithDuration:0.3 animations:^{
+        fromView.alpha = 0;
+        toView.alpha = 1;
     } completion:^(BOOL finished) {
-        prevViewController.view.alpha = 1;
-        
-        [self.contentViewController didMoveToParentViewController:self];
-        [prevViewController removeFromParentViewController];
+        fromView.alpha = 1;
         
         if (completion) {
-            completion (finished); 
+            completion(finished);
         }
     }];
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 
@@ -113,12 +172,59 @@
 
 - (CGAffineTransform)scaleUpTransform:(CGAffineTransform)transform {
     CGAffineTransform result = CGAffineTransformScale(transform, 1.0 / self.scale, 1.0 / self.scale);
-    return CGAffineTransformTranslate(result, -152, 0);
+    return CGAffineTransformMake(result.a, result.b, result.c, result.d, result.tx - 180, 0);
 }
 
 - (CGAffineTransform)scaleDownTransform:(CGAffineTransform)transform {
     CGAffineTransform result = CGAffineTransformScale(transform, self.scale, self.scale);
-    return CGAffineTransformTranslate(result, 320, 0);
+    return CGAffineTransformMake(result.a, result.b, result.c, result.d, result.tx + 180, 0);
+}
+
+
+#pragma mark - Overlay
+
+
+- (void)applyShadowToViewController:(UIViewController *)viewController {
+    CALayer *mainLayer = viewController.view.layer;
+    if (mainLayer) {
+        UIBezierPath *path = [UIBezierPath bezierPathWithRect:mainLayer.bounds];
+        mainLayer.shadowPath = path.CGPath;
+        mainLayer.shadowColor = [UIColor blackColor].CGColor;
+        mainLayer.shadowOffset = CGSizeZero;
+        mainLayer.shadowOpacity = 0.6f;
+        mainLayer.shadowRadius = 10.0f;
+    }
+}
+
+- (void)applyOverlayButtonToMainViewController {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    //button.accessibilityLabel = self.closeOverlayAccessibilityLabel;
+    //button.accessibilityHint = self.closeOverlayAccessibilityHint;
+    button.backgroundColor = [UIColor clearColor];
+    button.opaque = NO;
+    button.frame = self.contentViewController.view.frame;
+    
+    [button addTarget:self action:@selector(closeButtonTouchUpInside) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(closeButtonTouchedDown) forControlEvents:UIControlEventTouchDown];
+    [button addTarget:self action:@selector(closeButtonTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
+    
+    [self.view addSubview:button];
+    self.closeOverlayButton = button;
+}
+
+- (void)closeButtonTouchUpInside
+{
+    [self closeMenuAnimated:YES completion:nil];
+}
+
+- (void)closeButtonTouchedDown
+{
+    self.closeOverlayButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+}
+
+- (void)closeButtonTouchUpOutside
+{
+    self.closeOverlayButton.backgroundColor = [UIColor clearColor];
 }
 
 @end
