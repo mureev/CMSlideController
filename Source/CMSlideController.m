@@ -42,7 +42,12 @@
         
         // Prepeare
         
-        // TODO: should move scroll to top fix here
+        if ([menuViewController.view isKindOfClass:[UIScrollView class]]) {
+            UIScrollView *scrollView = (UIScrollView *)menuViewController.view;
+            scrollView.scrollsToTop = NO;
+        }
+        
+        menuViewController.view.clipsToBounds = NO;
         
         [self applyShadowToViewController:self.contentViewController];
         self.menuViewController.view.transform = [self scaleUpTransform:self.menuViewController.view.transform];
@@ -198,8 +203,6 @@
 
 - (void)applyOverlayButtonToMainViewController {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    //button.accessibilityLabel = self.closeOverlayAccessibilityLabel;
-    //button.accessibilityHint = self.closeOverlayAccessibilityHint;
     button.backgroundColor = [UIColor clearColor];
     button.opaque = NO;
     button.frame = self.contentViewController.view.frame;
@@ -212,19 +215,20 @@
     self.closeOverlayButton = button;
 }
 
-- (void)closeButtonTouchUpInside
-{
+- (void)closeButtonTouchUpInside {
     [self closeMenuAnimated:YES completion:nil];
 }
 
-- (void)closeButtonTouchedDown
-{
-    self.closeOverlayButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+- (void)closeButtonTouchedDown {
+    [UIView animateWithDuration:0.1 animations:^{
+        self.closeOverlayButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+    }];
 }
 
-- (void)closeButtonTouchUpOutside
-{
-    self.closeOverlayButton.backgroundColor = [UIColor clearColor];
+- (void)closeButtonTouchUpOutside {
+    [UIView animateWithDuration:0.1 animations:^{
+        self.closeOverlayButton.backgroundColor = [UIColor clearColor];
+    }];
 }
 
 @end
