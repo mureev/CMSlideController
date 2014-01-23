@@ -69,9 +69,9 @@
     if (!self.menuOpen) {
         self.menuOpen = YES;
         
-        [self animateMenuOpenWithCompletion:^(BOOL finished) {
+        [self animateMenuOpenWithDuration:animated ? 0.3: 0 completion:^(BOOL finished) {
             [self applyOverlayButtonToMainViewController];
-            
+
             if (completion) {
                 completion(finished);
             }
@@ -88,7 +88,7 @@
         [self.closeOverlayButton removeFromSuperview];
         self.closeOverlayButton = nil;
         
-        [self animateMenuCloseWithCompletion:completion];
+        [self animateMenuCloseWithDuration:animated ? 0.3: 0 completion:completion];
     } else if (completion) {
         completion(YES);
     }
@@ -105,17 +105,17 @@
         
         // Do it always animated
         
-        [self transitionFromViewController:self.prevContentViewController toViewController:self.contentViewController duration:0.3 options:0 animations:nil completion:^(BOOL finished) {
+        [self transitionFromViewController:self.prevContentViewController toViewController:self.contentViewController duration:0 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
             [self.contentViewController didMoveToParentViewController:self];
             [self.prevContentViewController removeFromParentViewController];
             self.prevContentViewController = nil;
         }];
         
         if (self.menuOpen) {
-            [self animateTransitionFromView:self.prevContentViewController.view toView:self.contentViewController.view completion:nil];
+            self.contentViewController.view.transform = self.prevContentViewController.view.transform;
             [self closeMenuAnimated:animated completion:completion];
         } else {
-            [self animateTransitionFromView:self.prevContentViewController.view toView:self.contentViewController.view completion:completion];
+            self.contentViewController.view.transform = self.prevContentViewController.view.transform;
         }
     } else {
         [self closeMenuAnimated:animated completion:completion];
@@ -130,8 +130,8 @@
 #pragma mark - Animate transitions
 
 
-- (void)animateMenuOpenWithCompletion:(void (^)(BOOL finished))completion {
-    [UIView animateWithDuration:0.3 animations:^{
+- (void)animateMenuOpenWithDuration:(NSTimeInterval)duration completion:(void (^)(BOOL finished))completion {
+    [UIView animateWithDuration:duration animations:^{
         self.contentViewController.view.transform = [self scaleDownTransform:self.contentViewController.view.transform];
         self.menuViewController.view.transform = [self scaleDownTransform:self.menuViewController.view.transform];
     } completion:^(BOOL finished) {
@@ -141,30 +141,12 @@
     }];
 }
 
-- (void)animateMenuCloseWithCompletion:(void (^)(BOOL finished))completion {
-    [UIView animateWithDuration:0.3 animations:^{
+- (void)animateMenuCloseWithDuration:(NSTimeInterval)duration completion:(void (^)(BOOL finished))completion {
+    [UIView animateWithDuration:duration animations:^{
         self.contentViewController.view.transform = [self scaleUpTransform:self.contentViewController.view.transform];
         self.menuViewController.view.transform = [self scaleUpTransform:self.menuViewController.view.transform];
         self.prevContentViewController.view.transform = [self scaleUpTransform:self.prevContentViewController.view.transform];
     } completion:^(BOOL finished) {
-        if (completion) {
-            completion(finished);
-        }
-    }];
-}
-
-
-- (void)animateTransitionFromView:(UIView *)fromView toView:(UIView *)toView completion:(void (^)(BOOL finished))completion {
-    fromView.alpha = 1;
-    toView.alpha = 0;
-    toView.transform = fromView.transform;
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        fromView.alpha = 0;
-        toView.alpha = 1;
-    } completion:^(BOOL finished) {
-        fromView.alpha = 1;
-        
         if (completion) {
             completion(finished);
         }
