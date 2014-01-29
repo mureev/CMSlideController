@@ -222,16 +222,18 @@ typedef NS_ENUM(NSUInteger, CMSlideControllerState) {
     button.backgroundColor = [UIColor clearColor];
     button.opaque = NO;
     button.frame = self.contentViewController.view.frame;
-
-    [button addTarget:self action:@selector(closeButtonTouchUpInside) forControlEvents:UIControlEventTouchUpInside];
+    
+    [button addTarget:self action:@selector(closeButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(closeButtonAction) forControlEvents:UIControlEventTouchUpOutside];
+    [button addTarget:self action:@selector(closeButtonAction) forControlEvents:UIControlEventTouchCancel];
     [button addTarget:self action:@selector(closeButtonTouchedDown) forControlEvents:UIControlEventTouchDown];
     [button addTarget:self action:@selector(closeButtonTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
-
+    
     [self.view addSubview:button];
     self.closeOverlayButton = button;
 }
 
-- (void)closeButtonTouchUpInside {
+- (void)closeButtonAction {
     [self closeMenuAnimated:YES completion:nil];
 }
 
