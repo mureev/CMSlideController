@@ -1,0 +1,4 @@
+language: objective-c
+xcode_sdk: iphonesimulator
+xcode_project: 'Demo/CMSlideController Demo.xcodeproj'
+xcode_scheme: 'CMSlideController Demo'
