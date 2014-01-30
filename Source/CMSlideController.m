@@ -223,9 +223,8 @@ typedef NS_ENUM(NSUInteger, CMSlideControllerState) {
     button.opaque = NO;
     button.frame = self.contentViewController.view.frame;
     
-    [button addTarget:self action:@selector(closeButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    [button addTarget:self action:@selector(closeButtonAction) forControlEvents:UIControlEventTouchUpOutside];
-    [button addTarget:self action:@selector(closeButtonAction) forControlEvents:UIControlEventTouchCancel];
+    [button addTarget:self action:@selector(closeButtonAction) forControlEvents:(UIControlEventTouchUpInside|UIControlEventTouchDragOutside)];
+    
     [button addTarget:self action:@selector(closeButtonTouchedDown) forControlEvents:UIControlEventTouchDown];
     [button addTarget:self action:@selector(closeButtonTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
     
