@@ -14,7 +14,6 @@
 		FC1396321858488300B4F88C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1396311858488300B4F88C /* main.m */; };
 		FC1396361858488300B4F88C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1396351858488300B4F88C /* AppDelegate.m */; };
 		FC1396381858488300B4F88C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1396371858488300B4F88C /* Images.xcassets */; };
-		FC1396571858498400B4F88C /* CMSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1396561858498400B4F88C /* CMSlideController.m */; };
 		FC13965B18585D4700B4F88C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC13965A18585D4700B4F88C /* MenuViewController.m */; };
 		FC9F30451859A2EE00B7D857 /* DCCrossHairView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9F30391859A2EE00B7D857 /* DCCrossHairView.m */; };
 		FC9F30461859A2EE00B7D857 /* DCFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9F303B1859A2EE00B7D857 /* DCFrameView.m */; };
@@ -22,6 +21,7 @@
 		FC9F30481859A2EE00B7D857 /* DCStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9F30401859A2EE00B7D857 /* DCStatusBarOverlay.m */; };
 		FC9F30491859A2EE00B7D857 /* DCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9F30421859A2EE00B7D857 /* DCTextView.m */; };
 		FC9F304A1859A2EE00B7D857 /* UIView+DCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9F30441859A2EE00B7D857 /* UIView+DCAdditions.m */; };
+		FCE25484189A81E400419E1D /* CMSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE25483189A81E400419E1D /* CMSlideController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,6 @@
 		FC1396341858488300B4F88C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FC1396351858488300B4F88C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FC1396371858488300B4F88C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FC1396551858498400B4F88C /* CMSlideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSlideController.h; sourceTree = "<group>"; };
-		FC1396561858498400B4F88C /* CMSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSlideController.m; sourceTree = "<group>"; };
 		FC13965918585D4700B4F88C /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		FC13965A18585D4700B4F88C /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		FC9F30381859A2EE00B7D857 /* DCCrossHairView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCrossHairView.h; sourceTree = "<group>"; };
@@ -53,6 +51,8 @@
 		FC9F30421859A2EE00B7D857 /* DCTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTextView.m; sourceTree = "<group>"; };
 		FC9F30431859A2EE00B7D857 /* UIView+DCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DCAdditions.h"; sourceTree = "<group>"; };
 		FC9F30441859A2EE00B7D857 /* UIView+DCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DCAdditions.m"; sourceTree = "<group>"; };
+		FCE25482189A81E400419E1D /* CMSlideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSlideController.h; sourceTree = "<group>"; };
+		FCE25483189A81E400419E1D /* CMSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSlideController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +99,8 @@
 		FC13962B1858488300B4F88C /* CMSlideController Demo */ = {
 			isa = PBXGroup;
 			children = (
+				FCE25481189A81E400419E1D /* CMSlideController */,
 				FC9F30371859A2EE00B7D857 /* DCIntrospect-ARC */,
-				FC1396541858495200B4F88C /* Source */,
 				FC13965818585D3A00B4F88C /* ViewControllers */,
 				FC1396341858488300B4F88C /* AppDelegate.h */,
 				FC1396351858488300B4F88C /* AppDelegate.m */,
@@ -119,16 +119,6 @@
 				FC1396331858488300B4F88C /* CMSlideController Demo-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FC1396541858495200B4F88C /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				FC1396551858498400B4F88C /* CMSlideController.h */,
-				FC1396561858498400B4F88C /* CMSlideController.m */,
-			);
-			name = Source;
-			path = ../../Source;
 			sourceTree = "<group>";
 		};
 		FC13965818585D3A00B4F88C /* ViewControllers */ = {
@@ -159,6 +149,16 @@
 			);
 			path = "DCIntrospect-ARC";
 			sourceTree = SOURCE_ROOT;
+		};
+		FCE25481189A81E400419E1D /* CMSlideController */ = {
+			isa = PBXGroup;
+			children = (
+				FCE25482189A81E400419E1D /* CMSlideController.h */,
+				FCE25483189A81E400419E1D /* CMSlideController.m */,
+			);
+			name = CMSlideController;
+			path = ../../CMSlideController;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -227,8 +227,8 @@
 				FC9F30481859A2EE00B7D857 /* DCStatusBarOverlay.m in Sources */,
 				FC9F30471859A2EE00B7D857 /* DCIntrospect.m in Sources */,
 				FC9F30461859A2EE00B7D857 /* DCFrameView.m in Sources */,
-				FC1396571858498400B4F88C /* CMSlideController.m in Sources */,
 				FC9F30451859A2EE00B7D857 /* DCCrossHairView.m in Sources */,
+				FCE25484189A81E400419E1D /* CMSlideController.m in Sources */,
 				FC1396321858488300B4F88C /* main.m in Sources */,
 				FC9F304A1859A2EE00B7D857 /* UIView+DCAdditions.m in Sources */,
 				FC9F30491859A2EE00B7D857 /* DCTextView.m in Sources */,
