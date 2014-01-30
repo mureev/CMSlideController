@@ -1,5 +1,8 @@
 #CMSlideController
 
+[![Build Status](https://secure.travis-ci.org/mureev/CMSlideController.png?branch=master)](http://travis-ci.org/mureev/CMSlideController)
+![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
+
 Coming soon...
 
 ---
