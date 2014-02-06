@@ -3,7 +3,7 @@
 [![Build Status](https://secure.travis-ci.org/mureev/CMSlideController.png?branch=master)](http://travis-ci.org/mureev/CMSlideController)
 ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
 
-UIViewController container with awesome iOS 7 slide menu, parallax animation and UIKit Dynamics.
+UIViewController container with awesome iOS 7 slide menu, parallax menu animation and UIKit Dynamics.
 
 ---
 ### How to use
