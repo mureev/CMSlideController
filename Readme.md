@@ -6,7 +6,7 @@
 UIViewController container with awesome iOS 7 slide menu, parallax menu animation and UIKit Dynamics.
 
 ## Note
-I'll release my own app with this in May 2014 and update this project with cool demo and screenshots.
+I'll release my own app with this lib in May 2014 and update this project with cool demo and screenshots.
 
 ---
 ### How to use
